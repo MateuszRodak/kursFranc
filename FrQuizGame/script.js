@@ -1,5 +1,5 @@
-var tabfr= ["oui","marble","pomme","avoine","prunier","or","poste","travail","bières","veux","vin","vert","foin","chat","pain","bois","eau","chien","deux","vache","zoo","parc","avec", "Japon","gare"];
-var tabpl= ["tak","marmur","jabłko","owies","śliwka","złoto","poczta","praca","piwa","chcieć","wino","zielony","siano","kot","chleb","drewno","woda","pies","dwa","krowa","zoo","park","z", "Japonia","dworzec"];
+var tabfr= ["divan","oui","marble","pomme","avoine","prunier","or","poste","travail","bières","veux","vin","vert","foin","chat","pain","bois","eau","chien","deux","vache","zoo","parc","avec", "Japon","gare"];
+var tabpl= ["kanapa","tak","marmur","jabłko","owies","śliwka","złoto","poczta","praca","piwa","chcieć","wino","zielony","siano","kot","chleb","drewno","woda","pies","dwa","krowa","zoo","park","z", "Japonia","dworzec"];
 
 
 var zadanie= ["0","0","0","0","0","0","0"];
@@ -38,13 +38,13 @@ function sprawdz()
             document.getElementById('radiobatony').style.backgroundColor = "green";
             punktacja++;
             document.getElementById("counter").innerText = punktacja + " / " + proby;
-            buzka = ":-)";
+            buzka = " --> ";
 
         } else {
             document.getElementById("counter").innerText = punktacja + " / " + proby;
             document.getElementById('radiobatony').style.backgroundColor = "red";
             //document.getElementsByName("tabfr").style.color = "red" ;
-             buzka = ":-(";
+             buzka = "";
         }
         dajInfo();
     }
@@ -52,7 +52,8 @@ function sprawdz()
     rozgrywka = false;
 }
 
-function dajInfo() {
+function dajInfo()
+{
     proby++;
 
    var linia=  document.getElementById("INFO").innerText;
@@ -141,9 +142,19 @@ function restart()
     klikniete=true;
     proby=1;
     punktacja=0;
-    document.getElementById("counter").innerText = "0/0";
-    wstawZadanie();
+    document.getElementById("counter").innerText = "0 / 0";
     document.getElementById("INFO").innerHTML = "INFO";
+
+    for(var p=1;p<15;p++)
+    {
+        document.getElementById("k1" + p).style.backgroundColor = "blue";
+        document.getElementById("k2" + p).style.backgroundColor = "orange";
+    }
+
+
+
+
+    wstawZadanie();
 }
 
 function zamiana() {
@@ -172,8 +183,58 @@ function gra2() {
     document.getElementById("PoleGry").style.display="none";
     document.getElementById("PoleGry2").style.display="block";
     restart();
+    g2stworzZadanie();
 }
 function gra3() {
     document.getElementById("PoleGry").style.display="none";
     restart();
+}
+
+function game2press(a, b) {
+
+    document.getElementById("INFO").innerHTML += "<br>";
+    document.getElementById("INFO").innerText += "a="+a+"b=" + b;
+
+    document.getElementById("k"+a+b).style.backgroundColor="red";
+    
+}
+
+function g2stworzZadanie() {
+    var kol1=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    var kol2=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+    var min4 = 1;
+    var max4 = 17;
+    var random4;
+    random4 = Math.floor(Math.random() * (+max4 - +min4)) + +min4;
+    kol1[0]=random4;
+
+    var h=0;
+    do {
+
+        function psychoza2() {
+            random4 = Math.floor(Math.random() * (+max4 - +min4)) + +min4;
+        }
+
+        if (kol1[0] == random4 || kol1[1] == random4 || kol1[2] == random4 || kol1[3] == random4 || kol1[4] == random4 || kol1[5] == random4 || kol1[6] == random4 || kol1[7] == random4 || kol1[8] == random4 || kol1[9] == random4 || kol1[10] == random4 || kol1[11] == random4 || kol1[12] == random4 || kol1[13] == random4 || kol1[14] == random4 || kol1[15] == random4)
+        {
+            psychoza2();
+        }
+        else
+            {
+            kol1[h] = random4;
+            h++;
+             }
+
+    }while(kol1[15]==0)
+   // }
+
+    for(var h=1;h<=16;h++)
+    {
+        kol2[h-1]=tabpl[kol1[h-1]];
+        kol1[h-1]=tabfr[kol1[h-1]];
+    document.getElementById("k1"+h).innerText = kol1[h-1];
+    document.getElementById("k2"+h).innerText = kol2[h-1];
+    }
+
 }

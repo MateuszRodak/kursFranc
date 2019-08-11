@@ -236,22 +236,41 @@ ul >li:hover
     margin-left: 10px;
     float: left;
     background-color: darkred;
-    height: 95%;
+    height: 90%;
     width: 30%;
+    border: solid 3px black;
 }
 #kol2
 {
     margin-top: 10px;
     margin-left: 10px;
     width: 30%;
-    height: 95%;
+    height: 90%;
     float: left;
     background-color: orange;
+    border: solid 3px black;
 }
 
 .kolumna1
 {
-    height: 5%;
+    height: 6%;
     background-color: blue;
     border-bottom: dashed 1px black;
+}
+
+.kolumna2
+{
+    height: 6%;
+    background-color: orange;
+    border-bottom: dashed 1px black;
+}
+
+.kolumna1:hover
+{
+    background-color: cornflowerblue;
+}
+
+.kolumna2:hover
+{
+    background-color: yellow;
 }
