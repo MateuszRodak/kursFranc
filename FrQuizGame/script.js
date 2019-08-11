@@ -1,5 +1,5 @@
-var tabfr= ["","jus","thé","divan","oui","marble","pomme","avoine","prunier","or","poste","travail","bières","veux","vin","vert","foin","chat","pain","bois","eau","chien","deux","vache","zoo","parc","avec", "Japon","gare"];
-var tabpl= ["","sok","herbata","kanapa","tak","marmur","jabłko","owies","śliwka","złoto","poczta","praca","piwa","chcieć","wino","zielony","siano","kot","chleb","drewno","woda","pies","dwa","krowa","zoo","park","z", "Japonia","dworzec"];
+var tabfr= ["","café","jus","thé","divan","oui","marble","pomme","avoine","prunier","or","poste","travail","bières","veux","vin","vert","foin","chat","pain","bois","eau","chien","deux","vache","zoo","parc","avec", "Japon","gare"];
+var tabpl= ["","kawa","sok","herbata","kanapa","tak","marmur","jabłko","owies","śliwka","złoto","poczta","praca","piwa","chcieć","wino","zielony","siano","kot","chleb","drewno","woda","pies","dwa","krowa","zoo","park","z", "Japonia","dworzec"];
 
 
 var zadanie= ["0","0","0","0","0","0","0"];
@@ -182,11 +182,17 @@ function zamiana() {
 function gra1() {
     document.getElementById("PoleGry").style.display="block";
     document.getElementById("PoleGry2").style.display="none";
+    document.getElementById("counter").style.display="block";
+    document.getElementById("STATUS").style.display="block";
+    document.getElementById("jezyk").style.display="block";
     restart();
 }
 function gra2() {
     document.getElementById("PoleGry").style.display="none";
     document.getElementById("PoleGry2").style.display="block";
+    document.getElementById("counter").style.display="none";
+    document.getElementById("STATUS").style.display="none";
+    document.getElementById("jezyk").style.display="none";
     restart();
     g2stworzZadanie();
 }
@@ -272,7 +278,7 @@ function game2press(a, b)
     //kol1,kol2
   //  document.getElementById("INFO").innerHTML += "<br>";
    // document.getElementById("INFO").innerText += "a="+a+"b=" + b;
-    if (g2 == false) {
+    if (document.getElementById("k" + a + b).style.backgroundColor != "green") {
         if (a === 1 && aaa === true) {
             aa = b;
             aaa = false;
@@ -317,8 +323,6 @@ function game2press(a, b)
                 bb = null;
             }
         }
-
-
     }
 }
 
