@@ -10,6 +10,7 @@ var proby=1;
 var rozgrywka=false;
 var info=0;
 var klikniete=true;
+var buzka = ":-)";
 
 var trybFr=true;
 
@@ -37,11 +38,13 @@ function sprawdz()
             document.getElementById('radiobatony').style.backgroundColor = "green";
             punktacja++;
             document.getElementById("counter").innerText = punktacja + " / " + proby;
+            buzka = ":-)";
 
         } else {
             document.getElementById("counter").innerText = punktacja + " / " + proby;
             document.getElementById('radiobatony').style.backgroundColor = "red";
             //document.getElementsByName("tabfr").style.color = "red" ;
+             buzka = ":-(";
         }
         dajInfo();
     }
@@ -53,13 +56,10 @@ function dajInfo() {
     proby++;
 
    var linia=  document.getElementById("INFO").innerText;
-    document.getElementById("INFO").innerHTML = "<li>" + tabfr[info] + "  -  " + tabpl[info] + "</li></n>";
+    document.getElementById("INFO").innerHTML = buzka + "&nbsp &nbsp" +tabfr[info] + "  -  " + tabpl[info];
     document.getElementById("INFO").innerHTML += "<br>";
     document.getElementById("INFO").innerText += linia;
-   // document.getElementById("INFO").innerHTML += "</li>";
-   // document.getElementById("INFO").innerHTML += "<br>";
-   // document.getElementById("lista").innerHTML += "<li>" + tabfr[info] + "  -  " + tabpl[info] + "</li>";
-    //document.getElementById("INFO").innerText += tabfr[info] + "  -  " + tabpl[info];
+
     klikniete = true;
 }
 
