@@ -1,0 +1,222 @@
+#Container
+{
+    background: lightgray;
+    min-width: 550px;
+    min-height: 650px;
+    margin: 2%;
+    border: dashed 3px black;
+}
+
+
+#Panel
+{
+    margin: 1%;
+    background: darkolivegreen;
+    height: 50px;
+}
+
+#Gra
+{
+    margin-top: 2%;
+    float:left;
+    background-color: darkslategray;
+    width: 50%;
+    min-height: 500px;
+    margin-left: 25px;
+    height: 530px;
+}
+
+#Przyciski
+{
+    margin-top: 2%;
+    float:left;
+    background-color: darkgreen;
+    min-height: 500px;
+    width: 15%;
+    margin-left: 3%;
+}
+
+#infos
+{}
+#INFO
+{
+    margin-top: 2%;
+    float:left;
+    min-height: 500px;
+    width: 25%;
+    background-color: midnightblue;
+    margin-left: 3%;
+    color: cornsilk;
+    text-align: center;
+    font-size: 18px;
+    max-height: 500px;
+    overflow:hidden;
+}
+#PoleGry
+{
+    background-color: slategray;
+    margin: 5%;
+    min-height: 400px;
+   padding: 2px;
+    height: 458px;
+}
+
+h1{
+    text-align: center;
+    font-size: 35px;
+    padding: 35px;
+}
+
+#Pytanie
+{
+    min-height: 100px;
+    margin-top: 15px;
+background-color: silver;
+}
+
+#radiobatony
+{
+    min-height: 240px;
+    background-color: lightseagreen;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#sprawdz
+{
+    min-height: 60px;
+    background-color: grey;
+}
+
+.radio
+{
+    color: red;
+    font-size: 50px;
+    margin: 11px;
+}
+
+.button
+{
+    width: 40%;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+h2{
+
+}
+
+#counter
+{
+    font-size: 40px;
+    text-align: right;
+    margin-right: 2%;
+    color: orangered;
+    text-shadow: 0 0 2px #000000;
+}
+
+#restart
+{
+    margin-top: 40px;
+    width: 150px;
+    padding: 10px;
+
+    align:center;
+}
+
+
+#jezyk
+{
+    margin-top: 40px;
+    width: 150px;
+    padding: 10px;
+
+    align:center;
+}
+
+#nazwa
+{
+    float: left;
+    color: greenyellow;
+    font-size: 44px;
+    margin-left: 18px;
+}
+
+#nazwa:active
+{
+    color: red;
+}
+
+#MENU {
+
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    }
+
+.menusio {
+
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+}
+
+ul
+{
+    text-align: center;
+    background-color: orangered;
+    border: solid 3px red;
+    display: none;
+    margin-left: -20px;
+    z-index: 100;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin-top: -4px;
+}
+
+ul > li
+{
+    margin-left: -10px;
+    margin-top: 10px;
+    padding: 1px;
+    border: solid 1px blue;
+    list-style-type: none;
+}
+
+ul >li:hover
+{
+    margin-left: -20px;
+    background-color: silver;
+}
+
+#MENU:hover > ul
+{
+    display: inline-block;
+}
+
+#opcja1:active
+{
+
+}
+
+#STATUS
+{
+    float: left;
+    color:darkred;
+    margin-left: 150px;
+    font-size: 40px;
+    text-shadow: 0 0 2px #fff;
+}
+
+#PoleGry2
+{
+    background-color: slategray;
+    margin: 5%;
+    min-height: 400px;
+    padding: 2px;
+    display: none;
+    height: 458px;
+}

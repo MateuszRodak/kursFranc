@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FrQuizGame</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+
+</head>
+<body style="background-color:black;" onload="wstawZadanie()">
+
+
+ <div id="Container">
+
+     <div id="Panel">
+         <div id="MENU">
+
+             <div class="menusio"></div>
+             <div class="menusio"></div>
+             <div class="menusio"></div>
+             <ul>
+                 <li id="opcja1" onclick="gra1()">OPCJA1</li>
+                 <li id="opcja2" onclick="gra2()">OPCJA2</li>
+                 <li id="opcja3" onclick="gra3()">OPCJA3</li>
+             </ul>
+         </div>
+         <div id="nazwa">FrQuizGame</div>
+         <div id="STATUS">FR -> PL</div>
+        <div id="counter">0 / 0</div>
+    </div>
+     <div id="Gra">
+         <div id="PoleGry">
+             <div id="Pytanie"><h1 id="h1">FOIN</h1>
+             </div>
+             <div id="radiobatony">Wybierz poprawną odpowiedz:
+                 <div>
+                     <input class= "radio" id= "radio1" type="radio" id="odpA" name="drone" value="odpA"
+                            checked>
+                     <label for="odpA" id="label1" >odpA</label>
+                 </div>
+
+                 <div>
+                     <input class= "radio" id= "radio2" type="radio" id="odpB" name="drone" value="odpB">
+                     <label for="odpB" id="label2" >odpB</label>
+                 </div>
+
+                 <div>
+                     <input class= "radio" id= "radio3" type="radio" id="siano" name="drone" value="siano">
+                     <label for="siano" id="label3">siano</label>
+                 </div>
+
+                 <div>
+                     <input class= "radio" id= "radio4" type="radio" id="odpD" name="drone" value="odpD">
+                     <label for="odpD" id="label4">odpD</label>
+                 </div>
+
+                 <div>
+                     <input class= "radio" id= "radio5" type="radio" id="odpE" name="drone" value="odpE">
+                     <label for="odpE" id="label5">odpE</label>
+                 </div>
+
+                 <div>
+                     <input class= "radio" id= "radio6" type="radio" id="odpF" name="drone" value="odpF">
+                     <label for="odpF" id="label6">odpF</label>
+                 </div>
+
+             </div>
+             <div id="sprawdz">
+                 <input class= "button" type="button" value="Sprawdz" onclick="sprawdz()">
+                 <input class= "button" type="button" value="NEXT" onclick="wstawZadanie()">
+             </div>
+         </div>
+         <div id="PoleGry2"></div>
+     </div>
+
+     <div id="Przyciski">
+
+        <input class="button" type="button" value="Restart" id="restart"  onclick="restart()">
+         <input class="button" type="button" value="Zamiana" id="jezyk"  onclick="zamiana()">
+
+     </div>
+     <div id="INFO">INFO
+         <div id="infos">
+             <ul style="height:465px;overflow: auto;" id="lista">
+             </ul>
+         </div>
+     </div>
+ </div>
+
+</body>
+</html>
