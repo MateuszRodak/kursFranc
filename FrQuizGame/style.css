@@ -256,6 +256,7 @@ ul >li:hover
     height: 6%;
     background-color: blue;
     border-bottom: dashed 1px black;
+    text-align: center;
 }
 
 .kolumna2
@@ -263,6 +264,7 @@ ul >li:hover
     height: 6%;
     background-color: orange;
     border-bottom: dashed 1px black;
+    text-align: center;
 }
 
 .kolumna1:hover

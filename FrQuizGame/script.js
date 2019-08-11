@@ -1,5 +1,5 @@
-var tabfr= ["divan","oui","marble","pomme","avoine","prunier","or","poste","travail","bières","veux","vin","vert","foin","chat","pain","bois","eau","chien","deux","vache","zoo","parc","avec", "Japon","gare"];
-var tabpl= ["kanapa","tak","marmur","jabłko","owies","śliwka","złoto","poczta","praca","piwa","chcieć","wino","zielony","siano","kot","chleb","drewno","woda","pies","dwa","krowa","zoo","park","z", "Japonia","dworzec"];
+var tabfr= ["","jus","thé","divan","oui","marble","pomme","avoine","prunier","or","poste","travail","bières","veux","vin","vert","foin","chat","pain","bois","eau","chien","deux","vache","zoo","parc","avec", "Japon","gare"];
+var tabpl= ["","sok","herbata","kanapa","tak","marmur","jabłko","owies","śliwka","złoto","poczta","praca","piwa","chcieć","wino","zielony","siano","kot","chleb","drewno","woda","pies","dwa","krowa","zoo","park","z", "Japonia","dworzec"];
 
 
 var zadanie= ["0","0","0","0","0","0","0"];
@@ -8,9 +8,13 @@ var odpowiedz=0;
 var punktacja=0;
 var proby=1;
 var rozgrywka=false;
-var info=0;
+var info;
 var klikniete=true;
 var buzka = ":-)";
+var kol1=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var kol2=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var kol11=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var kol22=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 var trybFr=true;
 
@@ -145,16 +149,17 @@ function restart()
     document.getElementById("counter").innerText = "0 / 0";
     document.getElementById("INFO").innerHTML = "INFO";
 
-    for(var p=1;p<15;p++)
+    for(var p=1;p<17;p++)
     {
         document.getElementById("k1" + p).style.backgroundColor = "blue";
         document.getElementById("k2" + p).style.backgroundColor = "orange";
     }
-
-
-
-
+    aaa=true;
+    bbb=true;
+    aa=null;
+    bb=null;
     wstawZadanie();
+    g2stworzZadanie();
 }
 
 function zamiana() {
@@ -187,27 +192,33 @@ function gra2() {
 }
 function gra3() {
     document.getElementById("PoleGry").style.display="none";
+    document.getElementById("PoleGry2").style.display="none";
     restart();
 }
 
-function game2press(a, b) {
-
-    document.getElementById("INFO").innerHTML += "<br>";
-    document.getElementById("INFO").innerText += "a="+a+"b=" + b;
-
-    document.getElementById("k"+a+b).style.backgroundColor="red";
-    
-}
+var aa;
+var bb;
+var aaa = true;
+var bbb = true;
+var aaaa ;
+var bbbb ;
+var g2=false;
+//var g22=false;
 
 function g2stworzZadanie() {
-    var kol1=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-    var kol2=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    kol1=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    kol2=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
-    var min4 = 1;
-    var max4 = 17;
+    aaa=true;
+    bbb=true;
+    aa=null;
+    bb=null;
+    var min4 = 0;
+    var max4 = tabfr.length;
     var random4;
     random4 = Math.floor(Math.random() * (+max4 - +min4)) + +min4;
     kol1[0]=random4;
+    // kol11[0]=random4;
 
     var h=0;
     do {
@@ -221,20 +232,94 @@ function g2stworzZadanie() {
             psychoza2();
         }
         else
-            {
+        {
             kol1[h] = random4;
+            // kol11[h] = random4;
+            kol2[h] = random4;
+            // kol22[h]= random4;
             h++;
-             }
+        }
 
     }while(kol1[15]==0)
-   // }
+
+
+    kol2.sort();
+    //kol22.sort();
 
     for(var h=1;h<=16;h++)
     {
-        kol2[h-1]=tabpl[kol1[h-1]];
-        kol1[h-1]=tabfr[kol1[h-1]];
-    document.getElementById("k1"+h).innerText = kol1[h-1];
-    document.getElementById("k2"+h).innerText = kol2[h-1];
-    }
+        //    kol22[h-1]=kol2[h-1];
+        //     kol11[h-1]=kol1[h-1];
 
+        kol22[h-1]=tabpl[kol2[h-1]];
+        kol11[h-1]=tabfr[kol1[h-1]];
+
+
+        document.getElementById("k1"+h).innerText = kol11[h-1];
+        document.getElementById("k2"+h).innerText = kol22[h-1];
+        //  document.getElementById("INFO").innerText += kol2[h];
+        //  document.getElementById("INFO").innerHTML += "<br>";
+     //   document.getElementById("INFO").innerHTML += "<br>";
+   //    document.getElementById("INFO").innerText += kol1[h-1] + "/" + kol2[h-1];
+     //   document.getElementById("INFO").innerText += h-1 + "/" + aa;
+    }
+    document.getElementById("INFO").innerHTML = "INFO";
 }
+
+function game2press(a, b)
+{
+
+    //kol1,kol2
+  //  document.getElementById("INFO").innerHTML += "<br>";
+   // document.getElementById("INFO").innerText += "a="+a+"b=" + b;
+    if (g2 == false) {
+        if (a === 1 && aaa === true) {
+            aa = b;
+            aaa = false;
+            document.getElementById("k" + a + b).style.backgroundColor = "red";
+            aaaa = "k" + a + b;
+        } else if (a === 2 && bbb == true) {
+            bb = b;
+            bbb = false;
+            document.getElementById("k" + a + b).style.backgroundColor = "red";
+            bbbb = "k" + a + b;
+        }
+
+
+        // document.getElementById("INFO").innerHTML += "<br>";
+        // document.getElementById("INFO").innerText += aa + "/" + bb;
+
+        //document.getElementById("INFO").innerText += "why";
+        if (kol1[aa - 1] == kol2[bb - 1]) {
+            // document.getElementById("k" + a + b).style.backgroundColor = "green";
+            document.getElementById(aaaa).style.backgroundColor = "green";
+            document.getElementById(bbbb).style.backgroundColor = "green";
+            info=kol1[aa-1];
+           // document.getElementById("INFO").innerText += kol1[aa-1];
+            dajInfo();
+            aaa = true;
+            bbb = true;
+            g2 = false;
+            aa = null;
+            bb = null;
+            // document.getElementById("INFO").innerHTML += "<br>";
+          //  document.getElementById("INFO").innerText += tabfr[kol1[aa - 1]] + " - " + tabpl[kol2[bb - 1]];
+
+        } else {
+            //document.getElementById("INFO").innerText += "lose-win";
+            if (aaa == bbb) {
+                document.getElementById(aaaa).style.backgroundColor = "blue";
+                document.getElementById(bbbb).style.backgroundColor = "orange";
+                aaa = true;
+                bbb = true;
+                g2 = false;
+                aa = null;
+                bb = null;
+            }
+        }
+
+
+    }
+}
+
+
