@@ -4,7 +4,7 @@
     min-width: 550px;
     min-height: 650px;
     margin: 2%;
-    border: dashed 3px black;
+    border: dashed 10px black;
 }
 
 
@@ -228,6 +228,9 @@ ul >li:hover
     padding: 2px;
     display: none;
     height: 458px;
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
 }
 
 #kol1
@@ -254,7 +257,7 @@ ul >li:hover
 .kolumna1
 {
     height: 6%;
-    background-color: blue;
+    background-color: cornflowerblue;
     border-bottom: dashed 1px black;
     text-align: center;
 }

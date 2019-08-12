@@ -1,5 +1,5 @@
-var tabfr= ["","marché","mai","fer","mouton","ici","maïs","café","jus","thé","divan","oui","marble","pomme","avoine","prunier","or","poste","travail","bières","veux","vin","vert","foin","chat","pain","bois","eau","chien","deux","vache","zoo","parc","avec", "Japon","gare"];
-var tabpl= ["","targ","maj","żelazo","owca","tutaj","kukurydza","kawa","sok","herbata","kanapa","tak","marmur","jabłko","owies","śliwka","złoto","poczta","praca","piwa","chcieć","wino","zielony","siano","kot","chleb","drewno","woda","pies","dwa","krowa","zoo","park","z", "Japonia","dworzec"];
+var tabfr= ["","pierre","pompier","avion","mars","cuivre","noir","poulet","marché","mai","fer","mouton","ici","maïs","café","jus","thé","divan","oui","marble","pomme","avoine","prunier","or","poste","travail","bières","veux","vin","vert","foin","chat","pain","bois","eau","chien","deux","vache","zoo","parc","avec", "Japon","gare"];
+var tabpl= ["","kamień","strażak","samolot","marzec","miedź","czarny","kurczak","targ","maj","żelazo","owca","tutaj","kukurydza","kawa","sok","herbata","kanapa","tak","marmur","jabłko","owies","śliwka","złoto","poczta","praca","piwa","chcieć","wino","zielony","siano","kot","chleb","drewno","woda","pies","dwa","krowa","zoo","park","z", "Japonia","dworzec"];
 
 
 var zadanie= ["0","0","0","0","0","0","0"];
@@ -151,7 +151,7 @@ function restart()
 
     for(var p=1;p<17;p++)
     {
-        document.getElementById("k1" + p).style.backgroundColor = "blue";
+        document.getElementById("k1" + p).style.backgroundColor = "cornflowerblue";
         document.getElementById("k2" + p).style.backgroundColor = "orange";
     }
     aaa=true;
@@ -252,7 +252,7 @@ function g2stworzZadanie() {
     kol2.sort();
     //kol22.sort();
 
-    for(h=1;h<=16;h++)
+    for(var h=1;h<=16;h++)
     {
         //    kol22[h-1]=kol2[h-1];
         //     kol11[h-1]=kol1[h-1];
@@ -298,8 +298,9 @@ function game2press(a, b)
         //document.getElementById("INFO").innerText += "why";
         if (kol1[aa - 1] == kol2[bb - 1]) {
             // document.getElementById("k" + a + b).style.backgroundColor = "green";
-            document.getElementById(aaaa).style.backgroundColor = "green";
-            document.getElementById(bbbb).style.backgroundColor = "green";
+            setTimeout("dadaw2()",500);
+            document.getElementById(aaaa).style.backgroundColor = "limegreen";
+            document.getElementById(bbbb).style.backgroundColor = "limegreen";
             info=kol1[aa-1];
            // document.getElementById("INFO").innerText += kol1[aa-1];
             dajInfo();
@@ -314,16 +315,29 @@ function game2press(a, b)
         } else {
             //document.getElementById("INFO").innerText += "lose-win";
             if (aaa == bbb) {
-                document.getElementById(aaaa).style.backgroundColor = "blue";
-                document.getElementById(bbbb).style.backgroundColor = "orange";
-                aaa = true;
-                bbb = true;
-                g2 = false;
-                aa = null;
-                bb = null;
+                document.getElementById(aaaa).style.backgroundColor = "red";
+                document.getElementById(bbbb).style.backgroundColor = "red";
+
+                setTimeout("dadaw()",500);
+
+
             }
         }
     }
 }
 
 
+function dadaw() {
+    document.getElementById(aaaa).style.backgroundColor = "cornflowerblue";
+    document.getElementById(bbbb).style.backgroundColor = "orange";
+    aaa = true;
+    bbb = true;
+    g2 = false;
+    aa = null;
+    bb = null;
+}
+
+function dadaw2() {
+    document.getElementById(aaaa).style.backgroundColor = "green";
+    document.getElementById(bbbb).style.backgroundColor = "green";
+}
