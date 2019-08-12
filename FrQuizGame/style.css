@@ -232,7 +232,7 @@ ul >li:hover
 
 #kol1
 {
-    margin-top: 10px;
+    margin-top: 20px !important;
     margin-left: 10px;
     float: left;
     background-color: darkred;
@@ -242,7 +242,7 @@ ul >li:hover
 }
 #kol2
 {
-    margin-top: 10px;
+    margin-top: 20px !important;
     margin-left: 10px;
     width: 30%;
     height: 90%;
@@ -275,4 +275,24 @@ ul >li:hover
 .kolumna2:hover
 {
     background-color: yellow;
+}
+
+#k11
+{
+    border-top: solid 1px black;
+}
+
+#k116
+{
+    border-bottom: solid 1px black;
+}
+
+#k21
+{
+    border-top: solid 1px black;
+}
+
+#k216
+{
+    border-bottom: solid 1px black;
 }
