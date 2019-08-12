@@ -1,5 +1,5 @@
-var tabfr= ["","pierre","pompier","avion","mars","cuivre","noir","poulet","marché","mai","fer","mouton","ici","maïs","café","jus","thé","divan","oui","marble","pomme","avoine","prunier","or","poste","travail","bières","veux","vin","vert","foin","chat","pain","bois","eau","chien","deux","vache","zoo","parc","avec", "Japon","gare"];
-var tabpl= ["","kamień","strażak","samolot","marzec","miedź","czarny","kurczak","targ","maj","żelazo","owca","tutaj","kukurydza","kawa","sok","herbata","kanapa","tak","marmur","jabłko","owies","śliwka","złoto","poczta","praca","piwa","chcieć","wino","zielony","siano","kot","chleb","drewno","woda","pies","dwa","krowa","zoo","park","z", "Japonia","dworzec"];
+var tabfr= ["","trois","un","pierre","pompier","avion","mars","cuivre","noir","poulet","marché","mai","fer","mouton","ici","maïs","café","jus","thé","divan","oui","marble","pomme","avoine","prunier","or","poste","travail","bières","veux","vin","vert","foin","chat","pain","bois","eau","chien","deux","vache","zoo","parc","avec", "Japon","gare"];
+var tabpl= ["","trzy","jeden","kamień","strażak","samolot","marzec","miedź","czarny","kurczak","targ","maj","żelazo","owca","tutaj","kukurydza","kawa","sok","herbata","kanapa","tak","marmur","jabłko","owies","śliwka","złoto","poczta","praca","piwa","chcieć","wino","zielony","siano","kot","chleb","drewno","woda","pies","dwa","krowa","zoo","park","z", "Japonia","dworzec"];
 
 
 var zadanie= ["0","0","0","0","0","0","0"];
@@ -8,6 +8,7 @@ var odpowiedz=0;
 var punktacja=0;
 var proby=1;
 var rozgrywka=false;
+var kociec=true;
 var info;
 var klikniete=true;
 var buzka = ":-)";
@@ -80,7 +81,7 @@ function stworzZadanie()
     if(klikniete) {
         czystka();
 
-        var min = 0;
+        var min = 1;
         var max = tabfr.length;
         var random = Math.floor(Math.random() * (+max - +min)) + +min;
         if (trybFr){zadanie[0] = tabfr[random];}
@@ -162,17 +163,18 @@ function restart()
     g2stworzZadanie();
 }
 
-function zamiana() {
+function zamiana()
+{
 
     if(trybFr)
     {
         trybFr=false;
-        document.getElementById("STATUS").innerText = " PL -> FR";
+        document.getElementById("STATUS").innerText = " PL => FR";
     }
     else
         {
             trybFr=true
-            document.getElementById("STATUS").innerText = " FR -> PL";
+            document.getElementById("STATUS").innerText = " FR => PL";
         }
     klikniete=true;
     wstawZadanie();
@@ -208,10 +210,12 @@ var aaa = true;
 var bbb = true;
 var aaaa ;
 var bbbb ;
+var aaaaa;
+var bbbbb;
 var g2=false;
-//var g22=false;
 
-function g2stworzZadanie() {
+function g2stworzZadanie()
+{
     kol1=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     kol2=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
@@ -224,7 +228,6 @@ function g2stworzZadanie() {
     var random4;
     random4 = Math.floor(Math.random() * (+max4 - +min4)) + +min4;
     kol1[0]=random4;
-    // kol11[0]=random4;
 
     var h=0;
     do {
@@ -240,22 +243,16 @@ function g2stworzZadanie() {
         else
         {
             kol1[h] = random4;
-            // kol11[h] = random4;
             kol2[h] = random4;
-            // kol22[h]= random4;
             h++;
         }
 
     }while(kol1[15]==0)
 
-
     kol2.sort();
-    //kol22.sort();
 
     for(var h=1;h<=16;h++)
     {
-        //    kol22[h-1]=kol2[h-1];
-        //     kol11[h-1]=kol1[h-1];
 
         kol22[h-1]=tabpl[kol2[h-1]];
         kol11[h-1]=tabfr[kol1[h-1]];
@@ -263,28 +260,22 @@ function g2stworzZadanie() {
 
         document.getElementById("k1"+h).innerText = kol11[h-1];
         document.getElementById("k2"+h).innerText = kol22[h-1];
-        //  document.getElementById("INFO").innerText += kol2[h];
-        //  document.getElementById("INFO").innerHTML += "<br>";
-     //   document.getElementById("INFO").innerHTML += "<br>";
-   //    document.getElementById("INFO").innerText += kol1[h-1] + "/" + kol2[h-1];
-     //   document.getElementById("INFO").innerText += h-1 + "/" + aa;
+
     }
     document.getElementById("INFO").innerHTML = "INFO";
 }
 
 function game2press(a, b)
 {
-
-    //kol1,kol2
-  //  document.getElementById("INFO").innerHTML += "<br>";
-   // document.getElementById("INFO").innerText += "a="+a+"b=" + b;
+if(kociec==true){
     if (document.getElementById("k" + a + b).style.backgroundColor != "green") {
-        if (a === 1 && aaa === true) {
+
+        if (a == 1 && aaa === true) {
             aa = b;
             aaa = false;
             document.getElementById("k" + a + b).style.backgroundColor = "red";
             aaaa = "k" + a + b;
-        } else if (a === 2 && bbb == true) {
+        } else if (a == 2 && bbb == true) {
             bb = b;
             bbb = false;
             document.getElementById("k" + a + b).style.backgroundColor = "red";
@@ -292,52 +283,66 @@ function game2press(a, b)
         }
 
 
-        // document.getElementById("INFO").innerHTML += "<br>";
-        // document.getElementById("INFO").innerText += aa + "/" + bb;
-
-        //document.getElementById("INFO").innerText += "why";
         if (kol1[aa - 1] == kol2[bb - 1]) {
-            // document.getElementById("k" + a + b).style.backgroundColor = "green";
-            setTimeout("dadaw2()",500);
-            document.getElementById(aaaa).style.backgroundColor = "limegreen";
-            document.getElementById(bbbb).style.backgroundColor = "limegreen";
-            info=kol1[aa-1];
-           // document.getElementById("INFO").innerText += kol1[aa-1];
+            kociec=false;
             dajInfo();
             aaa = true;
             bbb = true;
             g2 = false;
             aa = null;
             bb = null;
-            // document.getElementById("INFO").innerHTML += "<br>";
-          //  document.getElementById("INFO").innerText += tabfr[kol1[aa - 1]] + " - " + tabpl[kol2[bb - 1]];
+            aaaaa=aaaa;
+            bbbbb=bbbb;
+            document.getElementById(aaaa).style.backgroundColor = "limegreen";
+            document.getElementById(bbbb).style.backgroundColor = "limegreen";
+            info=kol1[aa-1];
+
+            setTimeout("dadaw2()",500);
+
 
         } else {
-            //document.getElementById("INFO").innerText += "lose-win";
-            if (aaa == bbb) {
-                document.getElementById(aaaa).style.backgroundColor = "red";
-                document.getElementById(bbbb).style.backgroundColor = "red";
 
+            if (aaa == bbb) {
+               document.getElementById(aaaa).style.backgroundColor = "red";
+                document.getElementById(bbbb).style.backgroundColor = "red";
+                aaaaa=aaaa;
+                bbbbb=bbbb;
                 setTimeout("dadaw()",500);
 
 
             }
+            else
+            {
+               // document.getElementById(bbbb).style.backgroundColor = "fffffff";
+            }
         }
     }
-}
+}}
 
-
-function dadaw() {
-    document.getElementById(aaaa).style.backgroundColor = "cornflowerblue";
-    document.getElementById(bbbb).style.backgroundColor = "orange";
+function dadaw()
+{
+    document.getElementById(aaaaa).style.backgroundColor = "cornflowerblue";
+    document.getElementById(bbbbb).style.backgroundColor = "orange";
+    aaaaa=null;
+    bbbbb=null;
     aaa = true;
     bbb = true;
     g2 = false;
     aa = null;
     bb = null;
+    kociec=true;
 }
 
-function dadaw2() {
-    document.getElementById(aaaa).style.backgroundColor = "green";
-    document.getElementById(bbbb).style.backgroundColor = "green";
+function dadaw2()
+{
+    document.getElementById(aaaaa).style.backgroundColor = "green";
+    document.getElementById(bbbbb).style.backgroundColor = "green";
+    aaaaa=null;
+    bbbbb=null;
+    aaa = true;
+    bbb = true;
+    g2 = false;
+    aa = null;
+    bb = null;
+    kociec=true;
 }
