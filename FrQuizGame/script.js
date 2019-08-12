@@ -4,9 +4,10 @@ var tabpl= ["","trzy","jeden","kamień","strażak","samolot","marzec","miedź","
 
 var zadanie= ["0","0","0","0","0","0","0"];
 var tab;
+var tryb1 = 2;
 var odpowiedz=0;
 var punktacja=0;
-var proby=1;
+var proby=0;
 var rozgrywka=false;
 var kociec=true;
 var info;
@@ -18,12 +19,14 @@ var kol11=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var kol22=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 var trybFr=true;
+var rate_value = 0;
+var stareRV=0;
 
 function sprawdz()
 {
-    if(rozgrywka)
-    {
-        var rate_value = 0;
+    if(rozgrywka) {
+        stareRV = rate_value;
+        rate_value = 0;
 
         if (document.getElementById("radio1").checked) {
             rate_value = 1;
@@ -39,30 +42,64 @@ function sprawdz()
             rate_value = 6;
         }
 
-        if (odpowiedz == rate_value) {
+        if (odpowiedz === rate_value) {
             document.getElementById('radiobatony').style.backgroundColor = "green";
-            punktacja++;
+            if (rate_value !== stareRV) {
+                punktacja++;
+            }
             document.getElementById("counter").innerText = punktacja + " / " + proby;
-            if(punktacja>=0 && punktacja<10) {buzka = " <=GOOD=> ";}
-           else if(punktacja>=10 && punktacja<30){buzka = " <=NICE=> ";}
-           else if(punktacja>=30 && punktacja<50){buzka = " <=WELL=> ";}
-           else if(punktacja>=50){buzka = " <=V.WELL=> ";}
-
+            if (punktacja >= 0 && punktacja < 10) {
+                buzka = " <=GOOD=> ";
+            } else if (punktacja >= 10 && punktacja < 30) {
+                buzka = " <=NICE=> ";
+            } else if (punktacja >= 30 && punktacja < 50) {
+                buzka = " <=WELL=> ";
+            } else if (punktacja >= 50) {
+                buzka = " <=V.WELL=> ";
+            }
+            if (tryb1 === 1) {
+                buzka="";
+                rozgrywka = false;
+                dajInfo();
+            }
         } else {
             document.getElementById("counter").innerText = punktacja + " / " + proby;
             document.getElementById('radiobatony').style.backgroundColor = "red";
             //document.getElementsByName("tabfr").style.color = "red" ;
-             buzka = "";
+            buzka = "";
         }
-        dajInfo();
+
+
+        if (tryb1 === 2) {
+            rozgrywka = false;
+            dajInfo();
+        }
+        if(tryb1 === 2)
+        {
+            proby++;
+            document.getElementById("counter").innerText = punktacja + " / " + proby;
+        }
+
+
+        if (rate_value !== stareRV) {
+            if(tryb1 === 1)
+            {
+                proby++;
+                document.getElementById("counter").innerText = punktacja + " / " + proby;
+            }
+
+            //stareRV = 0;
+            stareRV = 0;
+            document.getElementById("counter").innerText = punktacja + " / " + proby;
+        }
+
     }
 
-    rozgrywka = false;
 }
 
 function dajInfo()
 {
-    proby++;
+
 
    var linia=  document.getElementById("INFO").innerText;
     document.getElementById("INFO").innerHTML = buzka + "&nbsp &nbsp" +tabfr[info] + "  -  " + tabpl[info] + buzka;
@@ -106,13 +143,13 @@ function stworzZadanie()
         tab[k]=info;
         for (var i = 0; i <= 6; i++)
         {
-                if (zadanie[i] == "0")
+                if (zadanie[i] === "0")
                 {
                     function psychoza()
                     {
                         random3 = Math.floor(Math.random() * (+max - +min)) + +min;
 
-                        if (tab[0] == random3 || tab[1] == random3 || tab[2] == random3 || tab[3] == random3 || tab[4] == random3 || tab[5] == random3)
+                        if (tab[0] === random3 || tab[1] === random3 || tab[2] === random3 || tab[3] === random3 || tab[4] === random3 || tab[5] === random3)
                         {
                             psychoza();
                         }
@@ -148,7 +185,7 @@ function wstawZadanie()
 function restart()
 {
     klikniete=true;
-    proby=1;
+    proby=0;
     punktacja=0;
     document.getElementById("counter").innerText = "0 / 0";
     document.getElementById("INFO").innerHTML = "INFO";
@@ -190,14 +227,19 @@ function gra1() {
     document.getElementById("counter").style.display="block";
     document.getElementById("STATUS").style.display="block";
     document.getElementById("jezyk").style.display="block";
+    document.getElementById("nazwatrybu").style.display="block";
+    document.getElementById("tryb").style.display="block";
     restart();
 }
 function gra2() {
     document.getElementById("PoleGry").style.display="none";
+    document.getElementById("jezyk").style.display="none";
     document.getElementById("PoleGry2").style.display="block";
     document.getElementById("counter").style.display="none";
     document.getElementById("STATUS").style.display="none";
-    document.getElementById("jezyk").style.display="none";
+    document.getElementById("tryb").style.display="none";
+    document.getElementById("nazwatrybu").style.display="none";
+
     restart();
     g2stworzZadanie();
 }
@@ -222,6 +264,8 @@ function g2stworzZadanie()
     kol1=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     kol2=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
+    rate_value = 0;
+    stareRV=0;
     aaa=true;
     bbb=true;
     aa=null;
@@ -348,4 +392,19 @@ function dadaw2()
     aa = null;
     bb = null;
     kociec=true;
+}
+
+function zmianatrybu()
+{
+    if (tryb1===1)
+    {
+        tryb1=2;
+        document.getElementById("nazwatrybu").innerText= "jedna szansa";
+    }
+    else if(tryb1===2)
+    {
+        tryb1=1;
+        document.getElementById("nazwatrybu").innerText= "klikasz az trafisz";
+    }
+    restart();
 }

@@ -135,11 +135,25 @@ h2{
     width: 70%;
     padding: 10px;
 }
+#tryb
+{
+    margin-left: 15%;
+    margin-top: 40px;
+    width: 70%;
+    padding: 10px;
+}
 
 #nazwa
 {
     float: left;
     color: greenyellow;
+    font-size: 38px;
+    margin-left: 18px;
+}
+#nazwatrybu
+{
+    float: left;
+    color: yellow;
     font-size: 38px;
     margin-left: 18px;
 }
