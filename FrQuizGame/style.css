@@ -1,3 +1,8 @@
+body
+{
+    background-image: url("images/tlozrobionewkilkasekund.png");
+}
+
 #Container
 {
     background: lightgray;
@@ -5,6 +10,8 @@
     min-height: 650px;
     margin: 2%;
     border: dashed 10px black;
+    background-image: url("images/brick-container.jpg");
+    margin-bottom: 0px !important;
 }
 
 
@@ -13,11 +20,13 @@
     margin: 1%;
     background: darkolivegreen;
     height: 55px;
+    border-radius: 5%;
+    background-image: url("images/wood-tlo.jpg");
 }
 
 #Gra
 {
-    margin-top: 2%;
+    margin-top: 1%;
     float:left;
     background-color: darkslategray;
     width: 50%;
@@ -25,23 +34,27 @@
     margin-left: 2%;
     height: 530px;
     border-left: none;
+    border-radius: 5%;
+    background-image: url("images/wood-tlo.jpg");
 }
 
 #Przyciski
 {
-    margin-top: 2%;
+    margin-top: 1%;
     float:left;
     background-color: darkgreen;
     min-height: 500px;
     width: 15%;
     margin-left: 3%;
+    border-radius: 5%;
+    background-image: url("images/wood-tlo.jpg");
 }
 
 #infos
 {}
 #INFO
 {
-    margin-top: 2%;
+    margin-top: 1%;
     float:left;
     min-height: 500px;
     width: auto;
@@ -53,20 +66,27 @@
     font-size: 18px;
     max-height: 500px;
     overflow:hidden;
+    border-radius: 5%;
+    background-image: url("images/wood-tlo.jpg");
 }
 #PoleGry
 {
+    /*background-image: url("wood-tlo.jpg");
     background-color: slategray;
+
+     */
     margin: 5%;
     min-height: 400px;
    padding: 2px;
     height: 458px;
+
 }
 
 h1{
     text-align: center;
     font-size: 35px;
     padding: 35px;
+    margin-top: -20px;
 }
 
 #Pytanie
@@ -78,16 +98,29 @@ background-color: silver;
 
 #radiobatony
 {
+    background-color: darkblue;
     min-height: 240px;
-    background-color: lightseagreen;
     font-size: 20px;
     font-weight: bold;
+    color:white;
+}
+
+#next2
+{
+    background-color: white;
+}
+
+#Sprawdz1
+{
+    background-color: white;
 }
 
 #sprawdz
 {
     min-height: 60px;
-    background-color: grey;
+   /* background-color: grey;
+    background-image: url("wood-tlo.jpg");
+    */
 }
 
 .radio
@@ -95,6 +128,9 @@ background-color: silver;
     color: red;
     font-size: 50px;
     margin: 11px;
+    margin-left: 40px;
+    width: 16px;
+    height: 16px;
 }
 
 .button
@@ -105,8 +141,10 @@ background-color: silver;
     margin-left: 20px;
 }
 
-h2{
-
+h4{
+margin-left: 30px;
+    height: 0px;
+    font-size: 30px;
 }
 
 #counter
@@ -175,7 +213,7 @@ h2{
 
     width: 35px;
     height: 5px;
-    background-color: black;
+    background-color: white;
     margin: 6px 0;
 }
 
@@ -232,7 +270,10 @@ ul >li:hover
 
 #PoleGry2
 {
+    /*background-image: url("wood-tlo.jpg");
     background-color: slategray;
+
+     */
     margin: 5%;
     min-height: 400px;
     padding: 2px;
@@ -241,6 +282,7 @@ ul >li:hover
     font-size: 22px;
     text-align: center;
     font-weight: bold;
+
 }
 
 #kol1

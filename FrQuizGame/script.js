@@ -44,6 +44,7 @@ function sprawdz()
 
         if (odpowiedz === rate_value) {
             document.getElementById('radiobatony').style.backgroundColor = "green";
+            document.getElementById("next2").style.backgroundColor = "green";
             if (rate_value !== stareRV) {
                 punktacja++;
             }
@@ -64,8 +65,11 @@ function sprawdz()
             }
         } else {
             document.getElementById("counter").innerText = punktacja + " / " + proby;
+
             document.getElementById('radiobatony').style.backgroundColor = "red";
-            //document.getElementsByName("tabfr").style.color = "red" ;
+            if(tryb1==1) {
+                setTimeout("document.getElementById('radiobatony').style.backgroundColor = \"darkblue\";", 500);
+            }
             buzka = "";
         }
 
@@ -112,7 +116,7 @@ function dajInfo()
 function czystka()
 {
     zadanie= ["0","0","0","0","0","0","0"];
-    document.getElementById('radiobatony').style.backgroundColor="lightseagreen"
+    document.getElementById('radiobatony').style.backgroundColor="darkblue"
     rozgrywka = true;
 }
 
@@ -120,6 +124,7 @@ function stworzZadanie()
 {
     if(klikniete) {
         czystka();
+        document.getElementById("next2").style.backgroundColor = "white";
 
         var min = 1;
         var max = tabfr.length;
@@ -189,6 +194,7 @@ function restart()
     punktacja=0;
     document.getElementById("counter").innerText = "0 / 0";
     document.getElementById("INFO").innerHTML = "INFO";
+    document.getElementById("next2").style.backgroundColor = "white";
 
     for(var p=1;p<17;p++)
     {
@@ -384,6 +390,10 @@ function dadaw2()
 {
     document.getElementById(aaaaa).style.backgroundColor = "green";
     document.getElementById(bbbbb).style.backgroundColor = "green";
+  //  if(tryb1===2)
+   // {
+
+   // }
     aaaaa=null;
     bbbbb=null;
     aaa = true;
