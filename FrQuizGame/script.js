@@ -43,7 +43,10 @@ function sprawdz()
             document.getElementById('radiobatony').style.backgroundColor = "green";
             punktacja++;
             document.getElementById("counter").innerText = punktacja + " / " + proby;
-            buzka = " --> ";
+            if(punktacja>=0 && punktacja<10) {buzka = " <=GOOD=> ";}
+           else if(punktacja>=10 && punktacja<30){buzka = " <=NICE=> ";}
+           else if(punktacja>=30 && punktacja<50){buzka = " <=WELL=> ";}
+           else if(punktacja>=50){buzka = " <=V.WELL=> ";}
 
         } else {
             document.getElementById("counter").innerText = punktacja + " / " + proby;
@@ -62,7 +65,7 @@ function dajInfo()
     proby++;
 
    var linia=  document.getElementById("INFO").innerText;
-    document.getElementById("INFO").innerHTML = buzka + "&nbsp &nbsp" +tabfr[info] + "  -  " + tabpl[info];
+    document.getElementById("INFO").innerHTML = buzka + "&nbsp &nbsp" +tabfr[info] + "  -  " + tabpl[info] + buzka;
     document.getElementById("INFO").innerHTML += "<br>";
     document.getElementById("INFO").innerText += linia;
 
