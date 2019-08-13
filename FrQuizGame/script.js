@@ -44,7 +44,7 @@ function sprawdz()
         }
 
         if (odpowiedz === rate_value) {
-            if(zdane===true && tryb1 === 1 && rate_value==stareRV ){proby++;}
+            if(zdane===true && tryb1 === 1 && rate_value===stareRV ){proby++;}
 
             zdane=true;
             document.getElementById('radiobatony').style.backgroundColor = "green";
@@ -59,11 +59,14 @@ function sprawdz()
             if (punktacja >= 0 && punktacja < 10) {
                 buzka = "_GOOD_";
             } else if (punktacja >= 10 && punktacja < 30) {
+                document.getElementById("counter").style.color = "orange";
                 buzka = "_NICE_";
             } else if (punktacja >= 30 && punktacja < 50) {
                 buzka = "_WELL_";
+                document.getElementById("counter").style.color = "yellow";
             } else if (punktacja >= 50) {
                 buzka = "_V.WELL_";
+                document.getElementById("counter").style.color = "green";
             }
             if (tryb1 === 1) {
                 buzka="";
@@ -107,11 +110,11 @@ function sprawdz()
             stareRV = 0;
             document.getElementById("counter").innerText = punktacja + " / " + proby;
         }
-        if(rozgrywka===false)
-        {
-            rate_value===1;
+       // if(rozgrywka===false)
+      // {
+       //     rate_value===1;
 
-        }
+       // }
     }
   //  zdane=false;
 
