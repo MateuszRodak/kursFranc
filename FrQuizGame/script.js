@@ -44,19 +44,22 @@ function sprawdz()
 
         if (odpowiedz === rate_value) {
             document.getElementById('radiobatony').style.backgroundColor = "green";
-            document.getElementById("next2").style.backgroundColor = "green";
+            if(tryb1===1)
+            {
+                document.getElementById("next2").style.backgroundColor = "green";
+            }
             if (rate_value !== stareRV) {
                 punktacja++;
             }
             document.getElementById("counter").innerText = punktacja + " / " + proby;
             if (punktacja >= 0 && punktacja < 10) {
-                buzka = " <=GOOD=> ";
+                buzka = "_GOOD_";
             } else if (punktacja >= 10 && punktacja < 30) {
-                buzka = " <=NICE=> ";
+                buzka = "_NICE_";
             } else if (punktacja >= 30 && punktacja < 50) {
-                buzka = " <=WELL=> ";
+                buzka = "_WELL_";
             } else if (punktacja >= 50) {
-                buzka = " <=V.WELL=> ";
+                buzka = "_V.WELL_";
             }
             if (tryb1 === 1) {
                 buzka="";
@@ -67,7 +70,7 @@ function sprawdz()
             document.getElementById("counter").innerText = punktacja + " / " + proby;
 
             document.getElementById('radiobatony').style.backgroundColor = "red";
-            if(tryb1==1) {
+            if(tryb1===1) {
                 setTimeout("document.getElementById('radiobatony').style.backgroundColor = \"darkblue\";", 500);
             }
             buzka = "";
@@ -100,13 +103,14 @@ function sprawdz()
     }
 
 }
+//var stringi = "radio"+rate_value.toString();
 
 function dajInfo()
 {
-
+    document.getElementById("label"+odpowiedz).style.color = "limegreen";
 
    var linia=  document.getElementById("INFO").innerText;
-    document.getElementById("INFO").innerHTML = buzka + "&nbsp &nbsp" +tabfr[info] + "  -  " + tabpl[info] + buzka;
+    document.getElementById("INFO").innerHTML = buzka + "&nbsp &nbsp" +tabfr[info] + "  -  " + tabpl[info] + "&nbsp &nbsp" + buzka;
     document.getElementById("INFO").innerHTML += "<br>";
     document.getElementById("INFO").innerText += linia;
 
@@ -116,7 +120,14 @@ function dajInfo()
 function czystka()
 {
     zadanie= ["0","0","0","0","0","0","0"];
-    document.getElementById('radiobatony').style.backgroundColor="darkblue"
+    document.getElementById('radiobatony').style.backgroundColor="darkblue";
+    document.getElementById("label1").style.color= "white";
+    document.getElementById("label2").style.color= "white";
+    document.getElementById("label3").style.color= "white";
+    document.getElementById("label4").style.color= "white";
+    document.getElementById("label5").style.color= "white";
+    document.getElementById("label6").style.color= "white";
+ //   document.getElementById("label"+odpowiedz).style.color = "white";
     rozgrywka = true;
 }
 
@@ -125,6 +136,7 @@ function stworzZadanie()
     if(klikniete) {
         czystka();
         document.getElementById("next2").style.backgroundColor = "white";
+
 
         var min = 1;
         var max = tabfr.length;
@@ -219,7 +231,7 @@ function zamiana()
     }
     else
         {
-            trybFr=true
+            trybFr=true;
             document.getElementById("STATUS").innerText = " FR => PL";
         }
     klikniete=true;
@@ -409,12 +421,14 @@ function zmianatrybu()
     if (tryb1===1)
     {
         tryb1=2;
-        document.getElementById("nazwatrybu").innerText= "jedna szansa";
+      //  document.getElementById("nazwatrybu").innerText= "jedna szansa";
+        document.getElementById("tryb").value= "jedna szansa";
     }
     else if(tryb1===2)
     {
         tryb1=1;
-        document.getElementById("nazwatrybu").innerText= "klikasz az trafisz";
+        //document.getElementById("nazwatrybu").innerText= "klikasz az trafisz";
+        document.getElementById("tryb").value= "klikasz az trafisz";
     }
     restart();
 }

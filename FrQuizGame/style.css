@@ -63,7 +63,7 @@ body
     margin-left: 3%;
     color: cornsilk;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     max-height: 500px;
     overflow:hidden;
     border-radius: 5%;
@@ -266,6 +266,11 @@ ul >li:hover
     font-size: 40px;
     text-shadow: 0 0 2px #fff;
     width: 200px;
+}
+
+.label1
+{
+    color:white;
 }
 
 #PoleGry2
