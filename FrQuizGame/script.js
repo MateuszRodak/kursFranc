@@ -80,14 +80,12 @@ function sprawdz()
         if (tryb1 === 2) {
             rozgrywka = false;
             dajInfo();
-        }
-        if(tryb1 === 2)
-        {
             proby++;
             document.getElementById("counter").innerText = punktacja + " / " + proby;
         }
 
 
+        if(rozgrywka){document.getElementById("label"+rate_value).style.color = "orange";}
         if (rate_value !== stareRV) {
             if(tryb1 === 1)
             {
@@ -121,14 +119,15 @@ function czystka()
 {
     zadanie= ["0","0","0","0","0","0","0"];
     document.getElementById('radiobatony').style.backgroundColor="darkblue";
-    document.getElementById("label1").style.color= "white";
-    document.getElementById("label2").style.color= "white";
-    document.getElementById("label3").style.color= "white";
-    document.getElementById("label4").style.color= "white";
-    document.getElementById("label5").style.color= "white";
-    document.getElementById("label6").style.color= "white";
- //   document.getElementById("label"+odpowiedz).style.color = "white";
-    rozgrywka = true;
+    //if(tryb1===2) {
+        document.getElementById("label1").style.color = "white";
+        document.getElementById("label2").style.color = "white";
+        document.getElementById("label3").style.color = "white";
+        document.getElementById("label4").style.color = "white";
+        document.getElementById("label5").style.color = "white";
+        document.getElementById("label6").style.color = "white";
+        rozgrywka = true;
+    //}
 }
 
 function stworzZadanie()
