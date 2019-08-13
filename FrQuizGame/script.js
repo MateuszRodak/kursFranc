@@ -126,6 +126,7 @@ function czystka()
         document.getElementById("label4").style.color = "white";
         document.getElementById("label5").style.color = "white";
         document.getElementById("label6").style.color = "white";
+
         rozgrywka = true;
     //}
 }
@@ -209,7 +210,7 @@ function restart()
 
     for(var p=1;p<17;p++)
     {
-        document.getElementById("k1" + p).style.backgroundColor = "cornflowerblue";
+        document.getElementById("k1" + p).style.backgroundColor = "whitesmoke";
         document.getElementById("k2" + p).style.backgroundColor = "orange";
     }
     aaa=true;
@@ -249,14 +250,16 @@ function gra1() {
     restart();
 }
 function gra2() {
+
     document.getElementById("PoleGry").style.display="none";
     document.getElementById("jezyk").style.display="none";
     document.getElementById("PoleGry2").style.display="block";
     document.getElementById("counter").style.display="none";
     document.getElementById("STATUS").style.display="none";
     document.getElementById("tryb").style.display="none";
-    document.getElementById("nazwatrybu").style.display="none";
+    //document.getElementById("nazwatrybu").style.display="none";
 
+    //document.getElementById("INFO").innerText += "tutaj dziala";
     restart();
     g2stworzZadanie();
 }
@@ -280,6 +283,7 @@ function g2stworzZadanie()
 {
     kol1=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     kol2=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  //  document.getElementById("INFO").innerText = "tutaj dziala";
 
     rate_value = 0;
     stareRV=0;
@@ -300,7 +304,7 @@ function g2stworzZadanie()
             random4 = Math.floor(Math.random() * (+max4 - +min4)) + +min4;
         }
 
-        if (kol1[0] == random4 || kol1[1] == random4 || kol1[2] == random4 || kol1[3] == random4 || kol1[4] == random4 || kol1[5] == random4 || kol1[6] == random4 || kol1[7] == random4 || kol1[8] == random4 || kol1[9] == random4 || kol1[10] == random4 || kol1[11] == random4 || kol1[12] == random4 || kol1[13] == random4 || kol1[14] == random4 || kol1[15] == random4)
+        if (kol1[0] === random4 || kol1[1] === random4 || kol1[2] === random4 || kol1[3] === random4 || kol1[4] === random4 || kol1[5] === random4 || kol1[6] === random4 || kol1[7] === random4 || kol1[8] === random4 || kol1[9] === random4 || kol1[10] === random4 || kol1[11] === random4 || kol1[12] === random4 || kol1[13] === random4 || kol1[14] === random4 || kol1[15] === random4)
         {
             psychoza2();
         }
@@ -311,7 +315,7 @@ function g2stworzZadanie()
             h++;
         }
 
-    }while(kol1[15]==0)
+    }while(kol1[15]===0);
 
     kol2.sort();
 
@@ -331,15 +335,15 @@ function g2stworzZadanie()
 
 function game2press(a, b)
 {
-if(kociec==true){
-    if (document.getElementById("k" + a + b).style.backgroundColor != "green") {
+if(kociec===true){
+    if (document.getElementById("k" + a + b).style.backgroundColor !== "green") {
 
-        if (a == 1 && aaa === true) {
+        if (a === 1 && aaa === true) {
             aa = b;
             aaa = false;
             document.getElementById("k" + a + b).style.backgroundColor = "red";
             aaaa = "k" + a + b;
-        } else if (a == 2 && bbb == true) {
+        } else if (a === 2 && bbb === true) {
             bb = b;
             bbb = false;
             document.getElementById("k" + a + b).style.backgroundColor = "red";
@@ -347,7 +351,7 @@ if(kociec==true){
         }
 
 
-        if (kol1[aa - 1] == kol2[bb - 1]) {
+        if (kol1[aa - 1] === kol2[bb - 1]) {
             kociec=false;
             dajInfo();
             aaa = true;
@@ -366,7 +370,7 @@ if(kociec==true){
 
         } else {
 
-            if (aaa == bbb) {
+            if (aaa === bbb) {
                document.getElementById(aaaa).style.backgroundColor = "red";
                 document.getElementById(bbbb).style.backgroundColor = "red";
                 aaaaa=aaaa;
@@ -385,7 +389,7 @@ if(kociec==true){
 
 function dadaw()
 {
-    document.getElementById(aaaaa).style.backgroundColor = "cornflowerblue";
+    document.getElementById(aaaaa).style.backgroundColor = "whitesmoke";
     document.getElementById(bbbbb).style.backgroundColor = "orange";
     aaaaa=null;
     bbbbb=null;
