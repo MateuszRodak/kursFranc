@@ -11,6 +11,7 @@ var proby=0;
 var rozgrywka=false;
 var kociec=true;
 var info;
+//var info2=2;
 var klikniete=true;
 var buzka = ":-)";
 var kol1=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -21,7 +22,7 @@ var kol22=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var trybFr=true;
 var rate_value = 0;
 var stareRV=0;
-
+var zdane=false;
 function sprawdz()
 {
     if(rozgrywka) {
@@ -43,14 +44,17 @@ function sprawdz()
         }
 
         if (odpowiedz === rate_value) {
+            if(zdane===true && tryb1 === 1 && rate_value==stareRV ){proby++;}
+
+            zdane=true;
             document.getElementById('radiobatony').style.backgroundColor = "green";
             if(tryb1===1)
             {
                 document.getElementById("next2").style.backgroundColor = "green";
             }
-            if (rate_value !== stareRV) {
-                punktacja++;
-            }
+          //  if (rate_value !== stareRV) {
+            //}
+            punktacja++;
             document.getElementById("counter").innerText = punktacja + " / " + proby;
             if (punktacja >= 0 && punktacja < 10) {
                 buzka = "_GOOD_";
@@ -67,6 +71,12 @@ function sprawdz()
                 dajInfo();
             }
         } else {
+            if(zdane===true)
+            {
+                if (tryb1 === 1) { proby++;}
+                zdane=false;
+            }
+
             document.getElementById("counter").innerText = punktacja + " / " + proby;
 
             document.getElementById('radiobatony').style.backgroundColor = "red";
@@ -89,16 +99,21 @@ function sprawdz()
         if (rate_value !== stareRV) {
             if(tryb1 === 1)
             {
-                proby++;
                 document.getElementById("counter").innerText = punktacja + " / " + proby;
+                proby++;
             }
 
             //stareRV = 0;
             stareRV = 0;
             document.getElementById("counter").innerText = punktacja + " / " + proby;
         }
+        if(rozgrywka===false)
+        {
+            rate_value===1;
 
+        }
     }
+  //  zdane=false;
 
 }
 //var stringi = "radio"+rate_value.toString();
@@ -134,6 +149,7 @@ function czystka()
 function stworzZadanie()
 {
     if(klikniete) {
+      //  zdane=false;
         czystka();
         document.getElementById("next2").style.backgroundColor = "white";
 
@@ -353,17 +369,18 @@ if(kociec===true){
 
         if (kol1[aa - 1] === kol2[bb - 1]) {
             kociec=false;
-            dajInfo();
-            aaa = true;
-            bbb = true;
-            g2 = false;
-            aa = null;
-            bb = null;
             aaaaa=aaaa;
             bbbbb=bbbb;
             document.getElementById(aaaa).style.backgroundColor = "limegreen";
             document.getElementById(bbbb).style.backgroundColor = "limegreen";
             info=kol1[aa-1];
+            dajInfo();
+            //document.getElementById("INFO").innerText += aa;
+            aaa = true;
+            bbb = true;
+            g2 = false;
+          //  aa = null;
+            bb = null;
 
             setTimeout("dadaw2()",500);
 
