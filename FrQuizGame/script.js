@@ -151,6 +151,7 @@ function czystka()
 
 function stworzZadanie()
 {
+
     if(klikniete) {
       //  zdane=false;
         czystka();
@@ -206,6 +207,7 @@ function stworzZadanie()
 
 function wstawZadanie()
 {
+
     stworzZadanie();
 
         document.getElementById("h1").innerText = zadanie[0];
@@ -259,6 +261,10 @@ function zamiana()
 }
 
 function gra1() {
+    document.getElementById("meniusio1").style.backgroundColor="red";
+    document.getElementById("meniusio2").style.backgroundColor="white";
+    document.getElementById("meniusio3").style.backgroundColor="white";
+
     document.getElementById("PoleGry").style.display="block";
     document.getElementById("PoleGry2").style.display="none";
     document.getElementById("counter").style.display="block";
@@ -266,9 +272,13 @@ function gra1() {
     document.getElementById("jezyk").style.display="block";
    // document.getElementById("nazwatrybu").style.display="block";
     document.getElementById("tryb").style.display="block";
+
     restart();
 }
 function gra2() {
+    document.getElementById("meniusio1").style.backgroundColor="white";
+    document.getElementById("meniusio2").style.backgroundColor="red";
+    document.getElementById("meniusio3").style.backgroundColor="white";
 
     document.getElementById("PoleGry").style.display="none";
     document.getElementById("jezyk").style.display="none";
@@ -282,7 +292,12 @@ function gra2() {
     restart();
     g2stworzZadanie();
 }
-function gra3() {
+function gra3()
+{
+    document.getElementById("meniusio1").style.backgroundColor="white";
+    document.getElementById("meniusio2").style.backgroundColor="white";
+    document.getElementById("meniusio3").style.backgroundColor="red";
+
     document.getElementById("PoleGry").style.display="none";
     document.getElementById("PoleGry2").style.display="none";
     restart();
