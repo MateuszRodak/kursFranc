@@ -1,5 +1,5 @@
-var tabfr= ["","trois","un","pierre","pompier","avion","mars","cuivre","noir","poulet","marché","mai","fer","mouton","ici","maïs","café","jus","thé","divan","oui","marble","pomme","avoine","prunier","or","poste","travail","bières","veux","vin","vert","foin","chat","pain","bois","eau","chien","deux","vache","zoo","parc","avec", "Japon","gare"];
-var tabpl= ["","trzy","jeden","kamień","strażak","samolot","marzec","miedź","czarny","kurczak","targ","maj","żelazo","owca","tutaj","kukurydza","kawa","sok","herbata","kanapa","tak","marmur","jabłko","owies","śliwka","złoto","poczta","praca","piwa","chcieć","wino","zielony","siano","kot","chleb","drewno","woda","pies","dwa","krowa","zoo","park","z", "Japonia","dworzec"];
+var tabfr= ["","fromage","trois","un","pierre","pompier","avion","mars","cuivre","noir","poulet","marché","mai","fer","mouton","ici","maïs","café","jus","thé","divan","oui","marble","pomme","avoine","prunier","or","poste","travail","bières","veux","vin","vert","foin","chat","pain","bois","eau","chien","deux","vache","zoo","parc","avec", "Japon","gare"];
+var tabpl= ["","ser","trzy","jeden","kamień","strażak","samolot","marzec","miedź","czarny","kurczak","targ","maj","żelazo","owca","tutaj","kukurydza","kawa","sok","herbata","kanapa","tak","marmur","jabłko","owies","śliwka","złoto","poczta","praca","piwa","chcieć","wino","zielony","siano","kot","chleb","drewno","woda","pies","dwa","krowa","zoo","park","z", "Japonia","dworzec"];
 
 
 var zadanie= ["0","0","0","0","0","0","0"];
@@ -11,6 +11,7 @@ var proby=0;
 var rozgrywka=false;
 var kociec=true;
 var info;
+var g3=true;
 //var info2=2;
 var klikniete=true;
 var buzka = ":-)";
@@ -207,7 +208,7 @@ function stworzZadanie()
 
 function wstawZadanie()
 {
-
+  //  document.getElementById("PoleGry3").style.display="none";
     stworzZadanie();
 
         document.getElementById("h1").innerText = zadanie[0];
@@ -261,6 +262,7 @@ function zamiana()
 }
 
 function gra1() {
+    wstawZadanie();
     document.getElementById("meniusio1").style.backgroundColor="red";
     document.getElementById("meniusio2").style.backgroundColor="white";
     document.getElementById("meniusio3").style.backgroundColor="white";
@@ -272,6 +274,7 @@ function gra1() {
     document.getElementById("jezyk").style.display="block";
    // document.getElementById("nazwatrybu").style.display="block";
     document.getElementById("tryb").style.display="block";
+    document.getElementById("PoleGry3").style.display="none";
 
     restart();
 }
@@ -286,6 +289,7 @@ function gra2() {
     document.getElementById("counter").style.display="none";
     document.getElementById("STATUS").style.display="none";
     document.getElementById("tryb").style.display="none";
+    document.getElementById("PoleGry3").style.display="none";
     //document.getElementById("nazwatrybu").style.display="none";
 
     //document.getElementById("INFO").innerText += "tutaj dziala";
@@ -300,7 +304,9 @@ function gra3()
 
     document.getElementById("PoleGry").style.display="none";
     document.getElementById("PoleGry2").style.display="none";
+    document.getElementById("PoleGry3").style.display="block";
     restart();
+    g3stworzZadanie();
 }
 
 var aa;
@@ -469,4 +475,31 @@ function zmianatrybu()
         document.getElementById("tryb").value= "klikasz az trafisz";
     }
     restart();
+}
+
+var wohoho=7;
+var wohoho2=((1/wohoho)*100)+"%";
+var siano;
+
+function g3stworzZadanie()
+{
+
+
+     if(g3) {
+
+
+
+        if(wohoho===7)
+        {
+            document.getElementById("lock").style.lineHeight = 75+"px";
+           document.getElementById("slowa").style.lineHeight = 75+"px";
+        }
+
+        for (var y = 1; y <= wohoho; y++) {
+         document.getElementById("lock").innerHTML += "<div class=\"locki\"></div><br>";
+            document.getElementById("slowa").innerHTML += "<div class=\"slowo\"></div><br>";
+         }
+
+    }
+    g3=false;
 }

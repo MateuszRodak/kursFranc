@@ -356,3 +356,138 @@ ul >li:hover
 {
     border-bottom: solid 1px black;
 }
+
+#PoleGry3
+{
+    height: 100%;
+    background-color: red;
+}
+
+
+#slowa
+{
+    width: 40%;
+    height: 100%;
+    float: left;
+    background-color: yellow;
+    position: relative;
+    text-align: center;
+}
+#plusminus
+{
+    width: 10%;
+    height: 100%;
+    float: left;
+    background-color: greenyellow;
+}
+#plmn
+{
+    width: 20%;
+    height: 100%;
+    float: left;
+    background-color: rebeccapurple;
+}
+
+#dziwnakol
+{
+    width: 20%;
+    height: 100%;
+    float: left;
+    background-color: brown;
+}
+
+#popr
+{
+    margin-top: 0px;
+    height: 50%;
+    background-color: darkred;
+}
+
+#spis
+{
+    height: 50%;
+    background-color: grey;
+}
+
+#lock
+{
+    width: 10%;
+    height: 100%;
+    min-height: 95%;
+    float: left;
+    background-color: blue;
+    text-align: center;
+}
+
+.locki
+{
+    background-color: yellow;
+    border: solid 3px black;
+    min-height: 4px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.slowo
+{
+    background-color: wheat;
+    border-radius: 25%;
+    border: solid 3px black;
+    min-height: 4px;
+    width: 80%;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+}
+
+#karton
+{
+    background-color: orangered;
+    width: 60%;
+    height: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100%;
+    font-size: 90px;
+    font-weight: bold;
+    border: solid 3px black;
+    border-radius: 4%;
+    text-align: center;
+}
+
+#plus
+{
+    height: 50%;
+    background-color: green;
+    border-bottom: solid 3px black;
+}
+#minus
+{
+    height: 50%;
+    background-color: red;
+    float: bottom;
+    border-bottom: solid 3px black;
+}
+
+#spis
+{
+    background-color: hotpink;
+    margin: 20px;
+    border: solid 4px black;
+    height: 40%;
+    text-align: center;
+}
+
+.spiss
+{
+    width: 90%;
+    background-color: white;
+    border: solid 2px black;
+    padding: 1px;
+    margin-bottom: 26px;
+    min-height:20px;
+    margin-top: 12px;
+    margin-left: auto;
+    margin-right: auto;
+}
