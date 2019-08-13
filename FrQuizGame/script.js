@@ -245,7 +245,7 @@ function gra1() {
     document.getElementById("counter").style.display="block";
     document.getElementById("STATUS").style.display="block";
     document.getElementById("jezyk").style.display="block";
-    document.getElementById("nazwatrybu").style.display="block";
+   // document.getElementById("nazwatrybu").style.display="block";
     document.getElementById("tryb").style.display="block";
     restart();
 }
