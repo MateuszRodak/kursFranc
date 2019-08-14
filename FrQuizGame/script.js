@@ -1,5 +1,3 @@
-var tabfr= ["","fromage","trois","un","pierre","pompier","avion","mars","cuivre","noir","poulet","marché","mai","fer","mouton","ici","maïs","café","jus","thé","divan","oui","marble","pomme","avoine","prunier","or","poste","travail","bières","veux","vin","vert","foin","chat","pain","bois","eau","chien","deux","vache","zoo","parc","avec", "Japon","gare"];
-var tabpl= ["","ser","trzy","jeden","kamień","strażak","samolot","marzec","miedź","czarny","kurczak","targ","maj","żelazo","owca","tutaj","kukurydza","kawa","sok","herbata","kanapa","tak","marmur","jabłko","owies","śliwka","złoto","poczta","praca","piwa","chcieć","wino","zielony","siano","kot","chleb","drewno","woda","pies","dwa","krowa","zoo","park","z", "Japonia","dworzec"];
 
 
 var zadanie= ["0","0","0","0","0","0","0"];
@@ -478,8 +476,7 @@ function zmianatrybu()
 }
 
 var wohoho=7;
-var wohoho2=((1/wohoho)*100)+"%";
-var siano;
+var siano = ["styczen", "luty", "marzec","kwiecien"];
 
 function g3stworzZadanie()
 {
@@ -498,6 +495,7 @@ function g3stworzZadanie()
         for (var y = 1; y <= wohoho; y++) {
          document.getElementById("lock").innerHTML += "<div class=\"locki\"></div><br>";
             document.getElementById("slowa").innerHTML += "<div class=\"slowo\"></div><br>";
+            this.innerText = "maslo";
          }
 
     }
