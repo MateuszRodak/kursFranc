@@ -288,6 +288,7 @@ function gra2() {
     document.getElementById("STATUS").style.display="none";
     document.getElementById("tryb").style.display="none";
     document.getElementById("PoleGry3").style.display="none";
+
     //document.getElementById("nazwatrybu").style.display="none";
 
     //document.getElementById("INFO").innerText += "tutaj dziala";
@@ -316,12 +317,14 @@ var bbbb ;
 var aaaaa;
 var bbbbb;
 var g2=false;
+var omg=0;
 
 function g2stworzZadanie()
 {
     kol1=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     kol2=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   //  document.getElementById("INFO").innerText = "tutaj dziala";
+
 
     rate_value = 0;
     stareRV=0;
@@ -388,13 +391,18 @@ if(kociec===true){
             bbbb = "k" + a + b;
         }
 
-
         if (kol1[aa - 1] === kol2[bb - 1]) {
+            if(omg===15)
+            {
+                document.getElementById("konfetti").style.display="block";
+                setTimeout("konfi()",2500);
+            }
             kociec=false;
             aaaaa=aaaa;
             bbbbb=bbbb;
             document.getElementById(aaaa).style.backgroundColor = "limegreen";
             document.getElementById(bbbb).style.backgroundColor = "limegreen";
+            omg++;
             info=kol1[aa-1];
             dajInfo();
             //document.getElementById("INFO").innerText += aa;
@@ -500,4 +508,11 @@ function g3stworzZadanie()
 
     }
     g3=false;
+}
+
+function konfi() {
+
+    document.getElementById("konfetti").style.display="none";
+    omg=0;
+
 }
