@@ -394,8 +394,9 @@ if(kociec===true){
         if (kol1[aa - 1] === kol2[bb - 1]) {
             if(omg===15)
             {
+                wygra=false;
                 document.getElementById("konfetti").style.display="block";
-                setTimeout("konfi()",2500);
+                setTimeout("konfi()",10000);
             }
             kociec=false;
             aaaaa=aaaa;
