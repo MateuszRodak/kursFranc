@@ -496,7 +496,7 @@ function g3stworzZadanie()
         for (var y = 1; y <= wohoho; y++)
         {
          document.getElementById("lock").innerHTML += "<div class=\"locki\" id='locki"    +y+       "'></div><br>";
-            document.getElementById("slowa").innerHTML += "<div class=\"slowo\" id='slowo"  +y+    "'>dzban</div><br>";
+            document.getElementById("slowa").innerHTML += "<div class=\"slowo\" id='slowo"  +y+"'onclick=game3p("+y+    ")>dzban</div><br>";
             document.getElementById("plusminus").innerHTML += "<div class=\"slowo\" id='a"  +y+    "'>dzban</div><br>";
 
             if(wohoho===7)
@@ -541,4 +541,49 @@ function konfi() {
     document.getElementById("konfetti").style.display="none";
     omg=0;
 
+}
+var szpinak;
+function game3p( cebula) {
+    szpinak=cebula;
+    for (var y = 1; y <= wohoho; y++)
+    {
+        document.getElementById("slowo"+y).style.backgroundColor = "wheat";
+    }
+
+    document.getElementById("slowo"+cebula).style.backgroundColor = "red";
+
+}
+
+function dodaj3() {
+
+    for (var y = 1; y <= wohoho; y++)
+    {
+        document.getElementById("slowo"+y).style.backgroundColor = "wheat";
+    }
+
+    document.getElementById("slowo"+(szpinak-1)).style.backgroundColor = "red";
+    szpinak--;
+
+    var bufforA = document.getElementById("slowo"+szpinak).innerText;
+    var bufforB = document.getElementById("slowo"+(szpinak+1)).innerText;
+
+    document.getElementById("slowo"+szpinak).innerText = bufforB;
+    document.getElementById("slowo"+(szpinak+1)).innerText = bufforA;
+}
+
+function odejmij3() {
+
+    for (var y = 1; y <= wohoho; y++)
+    {
+        document.getElementById("slowo"+y).style.backgroundColor = "wheat";
+    }
+
+    document.getElementById("slowo"+(szpinak+1)).style.backgroundColor = "red";
+    szpinak++;
+
+    var bufforAA = document.getElementById("slowo"+szpinak).innerText;
+    var bufforBB = document.getElementById("slowo"+(szpinak-1)).innerText;
+
+    document.getElementById("slowo"+szpinak).innerText = bufforBB;
+    document.getElementById("slowo"+(szpinak-1)).innerText = bufforAA;
 }
