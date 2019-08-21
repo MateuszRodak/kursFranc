@@ -304,6 +304,8 @@ function gra3()
     document.getElementById("PoleGry").style.display="none";
     document.getElementById("PoleGry2").style.display="none";
     document.getElementById("PoleGry3").style.display="block";
+    document.getElementById("tryb").style.display="none";
+    document.getElementById("STATUS").style.display="none";
     restart();
     g3stworzZadanie();
 }
@@ -484,28 +486,51 @@ function zmianatrybu()
     restart();
 }
 
-var wohoho=7;
+var wohoho=10;
 var siano = ["styczen", "luty", "marzec","kwiecien"];
 
 function g3stworzZadanie()
 {
-
-
      if(g3) {
 
-
-
-        if(wohoho===7)
+        for (var y = 1; y <= wohoho; y++)
         {
-            document.getElementById("lock").style.lineHeight = 75+"px";
-           document.getElementById("slowa").style.lineHeight = 75+"px";
-        }
+         document.getElementById("lock").innerHTML += "<div class=\"locki\" id='locki"    +y+       "'></div><br>";
+            document.getElementById("slowa").innerHTML += "<div class=\"slowo\" id='slowo"  +y+    "'>dzban</div><br>";
+            document.getElementById("plusminus").innerHTML += "<div class=\"slowo\" id='a"  +y+    "'>dzban</div><br>";
 
-        for (var y = 1; y <= wohoho; y++) {
-         document.getElementById("lock").innerHTML += "<div class=\"locki\"></div><br>";
-            document.getElementById("slowa").innerHTML += "<div class=\"slowo\"></div><br>";
-            this.innerText = "maslo";
+            if(wohoho===7)
+            {
+                document.getElementById("slowo" + y).style.marginTop = 30+"px";
+                document.getElementById("locki" + y).style.marginTop = 30+"px";
+                document.getElementById("a" + y).style.marginTop = 30+"px";
+            }
+           else if(wohoho===10)
+            {
+                document.getElementById("slowo" + y).style.marginTop = 10+"px";
+                document.getElementById("locki" + y).style.marginTop = 10+"px";
+                document.getElementById("a" + y).style.marginTop = 10+"px";
+            }
+           else if(wohoho===12)
+            {
+                document.getElementById("slowo" + y).style.marginTop = 1+"px";
+                document.getElementById("locki" + y).style.marginTop = 1+"px";
+                document.getElementById("a" + y).style.marginTop = 1+"px";
+            }
+
+            document.getElementById("a" + y).innerText = tabliczbypl[y-1];
+            document.getElementById("slowo" + y).innerText = tabliczbyfr[y-1];
+
          }
+
+
+
+
+
+        document.getElementById("slowo2").style.backgroundColor = "blue";
+      //  document.getElementById("slowo2").style.color = "red";
+      //  document.getElementById("slowo3").innerText = "red";
+
 
     }
     g3=false;
