@@ -495,8 +495,8 @@ function g3stworzZadanie()
 
         for (var y = 1; y <= wohoho; y++)
         {
-         document.getElementById("lock").innerHTML += "<div class=\"locki\" id='locki"    +y+       "'></div><br>";
-            document.getElementById("slowa").innerHTML += "<div class=\"slowo\" id='slowo"  +y+"'onclick=game3p("+y+    ")>dzban</div><br>";
+         document.getElementById("lock").innerHTML += "<div class=\"locki\" id='locki"    +y+       "' onclick=game3s("+y+    ")></div><br>";
+            document.getElementById("slowa").innerHTML += "<div class=\"slowo\" id='slowo"  +y+"' onclick=game3p("+y+    ")>dzban</div><br>";
             document.getElementById("plusminus").innerHTML += "<div class=\"slowo\" id='a"  +y+    "'>dzban</div><br>";
 
             if(wohoho===7)
@@ -527,7 +527,7 @@ function g3stworzZadanie()
 
 
 
-        document.getElementById("slowo2").style.backgroundColor = "blue";
+      //  document.getElementById("slowo2").style.backgroundColor = "blue";
       //  document.getElementById("slowo2").style.color = "red";
       //  document.getElementById("slowo3").innerText = "red";
 
@@ -547,43 +547,86 @@ function game3p( cebula) {
     szpinak=cebula;
     for (var y = 1; y <= wohoho; y++)
     {
-        document.getElementById("slowo"+y).style.backgroundColor = "wheat";
+        if(document.getElementById("slowo"+y).style.backgroundColor !== "blue")
+        {
+            document.getElementById("slowo" + y).style.backgroundColor = "wheat";
+        }
     }
 
-    document.getElementById("slowo"+cebula).style.backgroundColor = "red";
+    if(document.getElementById("slowo" + szpinak).style.backgroundColor !== "blue")
+    {
+        document.getElementById("slowo"+cebula).style.backgroundColor = "red";
+    }
 
 }
 
 function dodaj3() {
-
-    for (var y = 1; y <= wohoho; y++)
+    if(szpinak!==1 && document.getElementById("slowo" + szpinak).style.backgroundColor !== "blue")
     {
-        document.getElementById("slowo"+y).style.backgroundColor = "wheat";
+        for (var y = 1; y <= wohoho; y++) {
+            if(document.getElementById("slowo" + y).style.backgroundColor !== "blue")
+            {
+                document.getElementById("slowo" + y).style.backgroundColor = "wheat";
+            }
+        }
+var kura=1;
+        while(document.getElementById("slowo" + (szpinak - 1)).style.backgroundColor === "blue")
+        {
+            szpinak--;
+            kura++;
+        }
+        document.getElementById("slowo" + (szpinak - 1)).style.backgroundColor = "red";
+        szpinak--;
+
+        var bufforA = document.getElementById("slowo" + szpinak).innerText;
+        document.getElementById("slowo" + szpinak).innerText = document.getElementById("slowo" + (szpinak + kura)).innerText;
+        document.getElementById("slowo" + (szpinak + kura)).innerText = bufforA;
     }
-
-    document.getElementById("slowo"+(szpinak-1)).style.backgroundColor = "red";
-    szpinak--;
-
-    var bufforA = document.getElementById("slowo"+szpinak).innerText;
-    var bufforB = document.getElementById("slowo"+(szpinak+1)).innerText;
-
-    document.getElementById("slowo"+szpinak).innerText = bufforB;
-    document.getElementById("slowo"+(szpinak+1)).innerText = bufforA;
 }
 
 function odejmij3() {
 
-    for (var y = 1; y <= wohoho; y++)
+    if(szpinak!==wohoho && document.getElementById("slowo" + szpinak).style.backgroundColor !== "blue")
     {
-        document.getElementById("slowo"+y).style.backgroundColor = "wheat";
-    }
+        for (var y = 1; y <= wohoho; y++) {
+            if(document.getElementById("slowo" + y).style.backgroundColor !== "blue")
+            {
+            document.getElementById("slowo" + y).style.backgroundColor = "wheat";
+            }
+        }
 
-    document.getElementById("slowo"+(szpinak+1)).style.backgroundColor = "red";
-    szpinak++;
+        var kura2=1;
+        while(document.getElementById("slowo" + (szpinak + 1)).style.backgroundColor === "blue")
+        {
+            szpinak++;
+            kura2++;
+        }
+
+        document.getElementById("slowo" + (szpinak + 1)).style.backgroundColor = "red";
+        szpinak++;
+
 
     var bufforAA = document.getElementById("slowo"+szpinak).innerText;
-    var bufforBB = document.getElementById("slowo"+(szpinak-1)).innerText;
 
-    document.getElementById("slowo"+szpinak).innerText = bufforBB;
-    document.getElementById("slowo"+(szpinak-1)).innerText = bufforAA;
+    document.getElementById("slowo"+szpinak).innerText = document.getElementById("slowo"+(szpinak-kura2)).innerText;
+    document.getElementById("slowo"+(szpinak-kura2)).innerText = bufforAA;
+}
+}
+
+function game3s(kliknietylock) {
+
+    if(document.getElementById("locki" + kliknietylock).style.backgroundColor !== "blue")
+    {
+        document.getElementById("a" + kliknietylock).style.backgroundColor = "blue";
+        document.getElementById("locki" + kliknietylock).style.backgroundColor = "blue";
+        document.getElementById("slowo" + kliknietylock).style.backgroundColor = "blue";
+    }
+
+    else
+    {
+        document.getElementById("a" + kliknietylock).style.backgroundColor = "wheat";
+        document.getElementById("locki" + kliknietylock).style.backgroundColor = "yellow";
+        document.getElementById("slowo" + kliknietylock).style.backgroundColor = "wheat";
+    }
+
 }

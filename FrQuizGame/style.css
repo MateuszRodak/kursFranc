@@ -463,8 +463,8 @@ ul >li:hover
     margin-top: 100%;
     font-size: 90px;
     font-weight: bold;
-    border: solid 3px black;
-    border-radius: 4%;
+    border: solid 5px black;
+    border-radius: 5%;
     text-align: center;
 }
 
@@ -473,6 +473,9 @@ ul >li:hover
     height: 50%;
     background-color: green;
     border-bottom: solid 3px black;
+    background-image: url("images/strzalkagora.png");
+    margin-right: auto;
+    margin-left: auto;
 }
 #minus
 {
@@ -480,6 +483,9 @@ ul >li:hover
     background-color: red;
     float: bottom;
     border-bottom: solid 3px black;
+    background-image: url("images/strzalkadol.png");
+    margin-right: auto;
+    margin-left: auto;
 }
 
 #spis
