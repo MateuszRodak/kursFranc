@@ -563,14 +563,23 @@ function game3p( cebula) {
 //var rozmiarmin=1;
 
 function dodaj3() {
-    var kura=1;
+    var przesuniecie=1;
+
+
     if(szpinak!==1 && document.getElementById("slowo" + szpinak).style.backgroundColor !== "blue")
     {
 
         while(document.getElementById("slowo" + (szpinak - 1)).style.backgroundColor === "blue")
         {
             szpinak--;
-            kura++;
+            przesuniecie++;
+            if(szpinak ===1)
+            {
+                szpinak=szpinak+przesuniecie;
+                przesuniecie=0;
+            }
+            document.getElementById("INFO").innerHTML += szpinak;
+            document.getElementById("INFO").innerHTML += przesuniecie;
           //  if(szpinak==rozmiarmin){
          ////       rozmiarmin++;
            //     szpinak++;
@@ -589,8 +598,8 @@ function dodaj3() {
         szpinak--;
 
         var bufforA = document.getElementById("slowo" + szpinak).innerText;
-        document.getElementById("slowo" + szpinak).innerText = document.getElementById("slowo" + (szpinak + kura)).innerText;
-        document.getElementById("slowo" + (szpinak + kura)).innerText = bufforA;
+        document.getElementById("slowo" + szpinak).innerText = document.getElementById("slowo" + (szpinak + przesuniecie)).innerText;
+        document.getElementById("slowo" + (szpinak + przesuniecie)).innerText = bufforA;
     }
 }
 function odejmij3() {
@@ -603,11 +612,12 @@ function odejmij3() {
         {
             szpinak++;
             kura2++;
-            if(szpinak==wohoho){
-             //   szpinak=szpinak-kura2;
-             //   kura2=1;
-                //odejmij3();
+            if(szpinak===wohoho){
+                szpinak=szpinak-kura2;
+                kura2=0;
             }
+
+
         }
         for (var y = 1; y <= wohoho; y++) {
             if(document.getElementById("slowo" + y).style.backgroundColor !== "blue")
