@@ -304,6 +304,7 @@ function gra3()
     document.getElementById("PoleGry").style.display="none";
     document.getElementById("PoleGry2").style.display="none";
     document.getElementById("PoleGry3").style.display="block";
+    document.getElementById("jezyk").style.display="none";
     document.getElementById("tryb").style.display="none";
     document.getElementById("STATUS").style.display="none";
     restart();
@@ -493,6 +494,31 @@ function g3stworzZadanie()
 {
      if(g3) {
 
+         var kol5=[0,0,0,0,0,0,0,0,0,0];
+         var min5 = 0;
+         var max5 = 11;
+         var random5;
+         random5 = Math.floor(Math.random() * (+max5 - +min5)) + +min5;
+         kol5[0]=random5;
+
+         var h5=0;
+         do {
+
+             function psychoza3() {
+                 random5 = Math.floor(Math.random() * (+max5 - +min5)) + +min5;
+             }
+
+             if (kol5[0] === random5 || kol5[1] === random5 || kol5[2] === random5 || kol5[3] === random5 || kol5[4] === random5 || kol5[5] === random5 || kol5[6] === random5 || kol5[7] === random5 || kol5[8] === random5 || kol5[9] === random5 || kol5[10] === random5)
+             {
+                 psychoza3();
+             }
+             else
+             {
+                 kol5[h5] = random5;
+                 h5++;
+             }
+         }while(h5<10);
+
         for (var y = 1; y <= wohoho; y++)
         {
          document.getElementById("lock").innerHTML += "<div class=\"locki\" id='locki"    +y+       "' onclick=game3s("+y+    ")></div><br>";
@@ -518,8 +544,16 @@ function g3stworzZadanie()
                 document.getElementById("a" + y).style.marginTop = 1+"px";
             }
 
+
+           // document.getElementById("INFO").innerText = kol5;
+
             document.getElementById("a" + y).innerText = tabliczbypl[y-1];
-            document.getElementById("slowo" + y).innerText = tabliczbyfr[y-1];
+            document.getElementById("slowo" + y).innerText = tabliczbyfr[kol5[y-1]-1];
+
+          // document.getElementById("INFO").innerText += pozycja;
+
+           // document.getElementById("a" + y).innerText = tabliczbypl[y-1];
+          //  document.getElementById("slowo" + y).innerText = tabliczbyfr[y-1];
 
          }
 
@@ -578,15 +612,7 @@ function dodaj3() {
                 szpinak=szpinak+przesuniecie;
                 przesuniecie=0;
             }
-            document.getElementById("INFO").innerHTML += szpinak;
-            document.getElementById("INFO").innerHTML += przesuniecie;
-          //  if(szpinak==rozmiarmin){
-         ////       rozmiarmin++;
-           //     szpinak++;
-              //  szpinak=szpinak+kura2+1;
-             //   kura=1;
-                //odejmij3();
-     //       }
+
         }
         for (var y = 1; y <= wohoho; y++) {
             if(document.getElementById("slowo" + y).style.backgroundColor !== "blue")
