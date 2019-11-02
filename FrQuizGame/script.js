@@ -2,7 +2,7 @@
 
 var zadanie= ["0","0","0","0","0","0","0"];
 var tab;
-var tryb1 = 2;
+var tryb1 = 1;
 var odpowiedz=0;
 var punktacja=0;
 var proby=0;
@@ -560,20 +560,30 @@ function game3p( cebula) {
 
 }
 
+//var rozmiarmin=1;
+
 function dodaj3() {
+    var kura=1;
     if(szpinak!==1 && document.getElementById("slowo" + szpinak).style.backgroundColor !== "blue")
     {
+
+        while(document.getElementById("slowo" + (szpinak - 1)).style.backgroundColor === "blue")
+        {
+            szpinak--;
+            kura++;
+          //  if(szpinak==rozmiarmin){
+         ////       rozmiarmin++;
+           //     szpinak++;
+              //  szpinak=szpinak+kura2+1;
+             //   kura=1;
+                //odejmij3();
+     //       }
+        }
         for (var y = 1; y <= wohoho; y++) {
             if(document.getElementById("slowo" + y).style.backgroundColor !== "blue")
             {
                 document.getElementById("slowo" + y).style.backgroundColor = "wheat";
             }
-        }
-var kura=1;
-        while(document.getElementById("slowo" + (szpinak - 1)).style.backgroundColor === "blue")
-        {
-            szpinak--;
-            kura++;
         }
         document.getElementById("slowo" + (szpinak - 1)).style.backgroundColor = "red";
         szpinak--;
@@ -583,35 +593,41 @@ var kura=1;
         document.getElementById("slowo" + (szpinak + kura)).innerText = bufforA;
     }
 }
-
 function odejmij3() {
+    var kura2=1;
 
     if(szpinak!==wohoho && document.getElementById("slowo" + szpinak).style.backgroundColor !== "blue")
     {
-        for (var y = 1; y <= wohoho; y++) {
-            if(document.getElementById("slowo" + y).style.backgroundColor !== "blue")
-            {
-            document.getElementById("slowo" + y).style.backgroundColor = "wheat";
-            }
-        }
 
-        var kura2=1;
         while(document.getElementById("slowo" + (szpinak + 1)).style.backgroundColor === "blue")
         {
             szpinak++;
             kura2++;
+            if(szpinak==wohoho){
+             //   szpinak=szpinak-kura2;
+             //   kura2=1;
+                //odejmij3();
+            }
+        }
+        for (var y = 1; y <= wohoho; y++) {
+            if(document.getElementById("slowo" + y).style.backgroundColor !== "blue")
+            {
+                document.getElementById("slowo" + y).style.backgroundColor = "wheat";
+            }
+
         }
 
         document.getElementById("slowo" + (szpinak + 1)).style.backgroundColor = "red";
         szpinak++;
 
 
-    var bufforAA = document.getElementById("slowo"+szpinak).innerText;
+        var bufforAA = document.getElementById("slowo"+szpinak).innerText;
 
-    document.getElementById("slowo"+szpinak).innerText = document.getElementById("slowo"+(szpinak-kura2)).innerText;
-    document.getElementById("slowo"+(szpinak-kura2)).innerText = bufforAA;
+        document.getElementById("slowo"+szpinak).innerText = document.getElementById("slowo"+(szpinak-kura2)).innerText;
+        document.getElementById("slowo"+(szpinak-kura2)).innerText = bufforAA;
+    }
 }
-}
+
 
 function game3s(kliknietylock) {
 
