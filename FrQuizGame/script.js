@@ -1,60 +1,61 @@
 
 
-var zadanie= ["0","0","0","0","0","0","0"];
+var OdpowiedziDoWyboru= ["0","0","0","0","0","0","0"];
 var tab;
 var tryb1 = 1;
 var odpowiedz=0;
 var punktacja=0;
-var proby=0;
+var iloscProb=0;
 var rozgrywka=false;
 var kociec=true;
-var info;
+var numerPoprawnejOdpowiedzi;
 var g3=true;
 //var info2=2;
-var klikniete=true;
+var brakZadania=true;
 var buzka = ":-)";
-var kol1=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-var kol2=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-var kol11=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-var kol22=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var tablicaWylosowanychNumerowPytan=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var tablicaWylosowanychNumerowPytanMIXED=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var nazwyZKolumny1=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var nazwyZKolumny2=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 var trybFr=true;
-var rate_value = 0;
-var stareRV=0;
+var numerRadioButtona = 0;
+var poprzedniNumerRadioButtona=0;
 var zdane=false;
-function sprawdz()
+
+function SprawdzPoprawnoscOdpowiedziWQuizie()
 {
     if(rozgrywka) {
-        stareRV = rate_value;
-        rate_value = 0;
+        poprzedniNumerRadioButtona = numerRadioButtona;
+        numerRadioButtona = 0;
 
         if (document.getElementById("radio1").checked) {
-            rate_value = 1;
+            numerRadioButtona = 1;
         } else if (document.getElementById("radio2").checked) {
-            rate_value = 2;
+            numerRadioButtona = 2;
         } else if (document.getElementById("radio3").checked) {
-            rate_value = 3;
+            numerRadioButtona = 3;
         } else if (document.getElementById("radio4").checked) {
-            rate_value = 4;
+            numerRadioButtona = 4;
         } else if (document.getElementById("radio5").checked) {
-            rate_value = 5;
+            numerRadioButtona = 5;
         } else if (document.getElementById("radio6").checked) {
-            rate_value = 6;
+            numerRadioButtona = 6;
         }
 
-        if (odpowiedz === rate_value) {
-            if(zdane===true && tryb1 === 1 && rate_value===stareRV ){proby++;}
+        if (odpowiedz === numerRadioButtona) {
+            if(zdane===true && tryb1 === 1 && numerRadioButtona===poprzedniNumerRadioButtona ){iloscProb++;}
 
             zdane=true;
             document.getElementById('radiobatony').style.backgroundColor = "green";
             if(tryb1===1)
             {
-                document.getElementById("next2").style.backgroundColor = "green";
+                document.getElementById("PRZYCISK_NEXT").style.backgroundColor = "green";
             }
           //  if (rate_value !== stareRV) {
             //}
             punktacja++;
-            document.getElementById("counter").innerText = punktacja + " / " + proby;
+            document.getElementById("counter").innerText = punktacja + " / " + iloscProb;
             if (punktacja >= 0 && punktacja < 10) {
                 buzka = "_GOOD_";
             } else if (punktacja >= 10 && punktacja < 30) {
@@ -75,11 +76,11 @@ function sprawdz()
         } else {
             if(zdane===true)
             {
-                if (tryb1 === 1) { proby++;}
+                if (tryb1 === 1) { iloscProb++;}
                 zdane=false;
             }
 
-            document.getElementById("counter").innerText = punktacja + " / " + proby;
+            document.getElementById("counter").innerText = punktacja + " / " + iloscProb;
 
             document.getElementById('radiobatony').style.backgroundColor = "red";
             if(tryb1===1) {
@@ -92,22 +93,22 @@ function sprawdz()
         if (tryb1 === 2) {
             rozgrywka = false;
             dajInfo();
-            proby++;
-            document.getElementById("counter").innerText = punktacja + " / " + proby;
+            iloscProb++;
+            document.getElementById("counter").innerText = punktacja + " / " + iloscProb;
         }
 
 
-        if(rozgrywka){document.getElementById("label"+rate_value).style.color = "orange";}
-        if (rate_value !== stareRV) {
+        if(rozgrywka){document.getElementById("label"+numerRadioButtona).style.color = "orange";}
+        if (numerRadioButtona !== poprzedniNumerRadioButtona) {
             if(tryb1 === 1)
             {
-                document.getElementById("counter").innerText = punktacja + " / " + proby;
-                proby++;
+                document.getElementById("counter").innerText = punktacja + " / " + iloscProb;
+                iloscProb++;
             }
 
             //stareRV = 0;
-            stareRV = 0;
-            document.getElementById("counter").innerText = punktacja + " / " + proby;
+            poprzedniNumerRadioButtona = 0;
+            document.getElementById("counter").innerText = punktacja + " / " + iloscProb;
         }
        // if(rozgrywka===false)
       // {
@@ -125,16 +126,16 @@ function dajInfo()
     document.getElementById("label"+odpowiedz).style.color = "limegreen";
 
    var linia=  document.getElementById("INFO").innerText;
-    document.getElementById("INFO").innerHTML = buzka + "&nbsp &nbsp" +tabfr[info] + "  -  " + tabpl[info] + "&nbsp &nbsp" + buzka;
+    document.getElementById("INFO").innerHTML = buzka + "&nbsp &nbsp" +tabfr[numerPoprawnejOdpowiedzi] + "  -  " + tabpl[numerPoprawnejOdpowiedzi] + "&nbsp &nbsp" + buzka;
     document.getElementById("INFO").innerHTML += "<br>";
     document.getElementById("INFO").innerText += linia;
 
-    klikniete = true;
+    brakZadania = true;
 }
 
-function czystka()
+function WyczyscOdpowiedziIKolory()
 {
-    zadanie= ["0","0","0","0","0","0","0"];
+    OdpowiedziDoWyboru= ["0","0","0","0","0","0","0"];
     document.getElementById('radiobatony').style.backgroundColor="darkblue";
     //if(tryb1===2) {
         document.getElementById("label1").style.color = "white";
@@ -151,57 +152,57 @@ function czystka()
 function stworzZadanie()
 {
 
-    if(klikniete) {
+    if(brakZadania) {
       //  zdane=false;
-        czystka();
-        document.getElementById("next2").style.backgroundColor = "white";
+        WyczyscOdpowiedziIKolory();
+        document.getElementById("PRZYCISK_NEXT").style.backgroundColor = "white";
 
 
         var min = 1;
         var max = tabfr.length;
         var random = Math.floor(Math.random() * (+max - +min)) + +min;
-        if (trybFr){zadanie[0] = tabfr[random];}
-        else {zadanie[0] = tabpl[random]; }
-        info = random;
+        if (trybFr){OdpowiedziDoWyboru[0] = tabfr[random];}
+        else {OdpowiedziDoWyboru[0] = tabpl[random]; }
+        numerPoprawnejOdpowiedzi = random;       
 
         var min2 = 1;
         var max2 = 7;
         var random2 = Math.floor(Math.random() * (+max2 - +min2)) + +min2;
 
-       if(trybFr) {zadanie[random2] = tabpl[random];}
-       else { zadanie[random2] = tabfr[random]; }
+       if(trybFr) {OdpowiedziDoWyboru[random2] = tabpl[random];}
+       else { OdpowiedziDoWyboru[random2] = tabfr[random]; }
         odpowiedz = random2;
 
         var random3=0;
 
         var k=0;
         tab=[0,0,0,0,0,0,0];
-        tab[k]=info;
+        tab[k]=numerPoprawnejOdpowiedzi;
         for (var i = 0; i <= 6; i++)
         {
-                if (zadanie[i] === "0")
+                if (OdpowiedziDoWyboru[i] === "0")
                 {
-                    function psychoza()
+                    function WylosujPytanie()
                     {
                         random3 = Math.floor(Math.random() * (+max - +min)) + +min;
 
                         if (tab[0] === random3 || tab[1] === random3 || tab[2] === random3 || tab[3] === random3 || tab[4] === random3 || tab[5] === random3)
                         {
-                            psychoza();
+                            WylosujPytanie();
                         }
                         else
                         {
                             tab[k] = random3;
-                           if(trybFr){ zadanie[i] = tabpl[random3];}
-                           else {zadanie[i] = tabfr[random3];}
+                           if(trybFr){ OdpowiedziDoWyboru[i] = tabpl[random3];}
+                           else {OdpowiedziDoWyboru[i] = tabfr[random3];}
                         }
                     }
-                    psychoza();
+                    WylosujPytanie();
             }
             k++;
         }
     }
-    klikniete=false;
+    brakZadania=false;
 }
 
 function wstawZadanie()
@@ -209,34 +210,34 @@ function wstawZadanie()
   //  document.getElementById("PoleGry3").style.display="none";
     stworzZadanie();
 
-        document.getElementById("h1").innerText = zadanie[0];
+        document.getElementById("h1").innerText = OdpowiedziDoWyboru[0];
 
-        document.getElementById("label1").innerText = zadanie[1];
-        document.getElementById("label2").innerText = zadanie[2];
-        document.getElementById("label3").innerText = zadanie[3];
-        document.getElementById("label4").innerText = zadanie[4];
-        document.getElementById("label5").innerText = zadanie[5];
-        document.getElementById("label6").innerText = zadanie[6];
+        document.getElementById("label1").innerText = OdpowiedziDoWyboru[1];
+        document.getElementById("label2").innerText = OdpowiedziDoWyboru[2];
+        document.getElementById("label3").innerText = OdpowiedziDoWyboru[3];
+        document.getElementById("label4").innerText = OdpowiedziDoWyboru[4];
+        document.getElementById("label5").innerText = OdpowiedziDoWyboru[5];
+        document.getElementById("label6").innerText = OdpowiedziDoWyboru[6];
 }
 
 function restart()
 {
-    klikniete=true;
-    proby=0;
+    brakZadania=true;
+    iloscProb=0;
     punktacja=0;
     document.getElementById("counter").innerText = "0 / 0";
     document.getElementById("INFO").innerHTML = "INFO";
-    document.getElementById("next2").style.backgroundColor = "white";
+    document.getElementById("PRZYCISK_NEXT").style.backgroundColor = "white";
 
     for(var p=1;p<17;p++)
     {
         document.getElementById("k1" + p).style.backgroundColor = "whitesmoke";
         document.getElementById("k2" + p).style.backgroundColor = "orange";
     }
-    aaa=true;
-    bbb=true;
-    aa=null;
-    bb=null;
+    brakOdpowiedziKolumna1=true;
+    brakOdpowiedziKolumna2=true;
+    wybranyNumerWiersza1=null;
+    wybranyNumerWiersza2=null;
     wstawZadanie();
     g2stworzZadanie();
 }
@@ -254,7 +255,7 @@ function zamiana()
             trybFr=true;
             document.getElementById("STATUS").innerText = " FR => PL";
         }
-    klikniete=true;
+    brakZadania=true;
     wstawZadanie();
 
 }
@@ -311,122 +312,122 @@ function gra3()
     g3stworzZadanie();
 }
 
-var aa;
-var bb;
-var aaa = true;
-var bbb = true;
-var aaaa ;
-var bbbb ;
-var aaaaa;
-var bbbbb;
+var wybranyNumerWiersza1;
+var wybranyNumerWiersza2;
+var brakOdpowiedziKolumna1 = true;
+var brakOdpowiedziKolumna2 = true;
+var pozycjaWKolumnie1 ;
+var pozycjaWKolumnie2 ;
+var wybranaPozycjaWKolumnie1;
+var wybranaPozycjaWKolumnie2;
 var g2=false;
-var omg=0;
+var iloscPoprawnychZaznaczen=0;
 
 function g2stworzZadanie()
 {
-    kol1=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-    kol2=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    tablicaWylosowanychNumerowPytan=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    tablicaWylosowanychNumerowPytanMIXED=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   //  document.getElementById("INFO").innerText = "tutaj dziala";
 
 
-    rate_value = 0;
-    stareRV=0;
-    aaa=true;
-    bbb=true;
-    aa=null;
-    bb=null;
+    numerRadioButtona = 0;
+    poprzedniNumerRadioButtona=0;
+    brakOdpowiedziKolumna1=true;
+    brakOdpowiedziKolumna2=true;
+    wybranyNumerWiersza1=null;
+    wybranyNumerWiersza2=null;
     var min4 = 0;
     var max4 = tabfr.length;
     var random4;
     random4 = Math.floor(Math.random() * (+max4 - +min4)) + +min4;
-    kol1[0]=random4;
+    tablicaWylosowanychNumerowPytan[0]=random4;
 
     var h=0;
     do {
 
-        function psychoza2() {
+        function LosowaniePytanDoGryNr2() {
             random4 = Math.floor(Math.random() * (+max4 - +min4)) + +min4;
         }
 
-        if (kol1[0] === random4 || kol1[1] === random4 || kol1[2] === random4 || kol1[3] === random4 || kol1[4] === random4 || kol1[5] === random4 || kol1[6] === random4 || kol1[7] === random4 || kol1[8] === random4 || kol1[9] === random4 || kol1[10] === random4 || kol1[11] === random4 || kol1[12] === random4 || kol1[13] === random4 || kol1[14] === random4 || kol1[15] === random4)
+        if (tablicaWylosowanychNumerowPytan[0] === random4 || tablicaWylosowanychNumerowPytan[1] === random4 || tablicaWylosowanychNumerowPytan[2] === random4 || tablicaWylosowanychNumerowPytan[3] === random4 || tablicaWylosowanychNumerowPytan[4] === random4 || tablicaWylosowanychNumerowPytan[5] === random4 || tablicaWylosowanychNumerowPytan[6] === random4 || tablicaWylosowanychNumerowPytan[7] === random4 || tablicaWylosowanychNumerowPytan[8] === random4 || tablicaWylosowanychNumerowPytan[9] === random4 || tablicaWylosowanychNumerowPytan[10] === random4 || tablicaWylosowanychNumerowPytan[11] === random4 || tablicaWylosowanychNumerowPytan[12] === random4 || tablicaWylosowanychNumerowPytan[13] === random4 || tablicaWylosowanychNumerowPytan[14] === random4 || tablicaWylosowanychNumerowPytan[15] === random4)
         {
-            psychoza2();
+            LosowaniePytanDoGryNr2();
         }
         else
         {
-            kol1[h] = random4;
-            kol2[h] = random4;
+            tablicaWylosowanychNumerowPytan[h] = random4;
+            tablicaWylosowanychNumerowPytanMIXED[h] = random4;
             h++;
         }
 
-    }while(kol1[15]===0);
+    }while(tablicaWylosowanychNumerowPytan[15]===0);
 
-    kol2.sort();
+    tablicaWylosowanychNumerowPytanMIXED.sort();
 
     for(var h=1;h<=16;h++)
     {
 
-        kol22[h-1]=tabpl[kol2[h-1]];
-        kol11[h-1]=tabfr[kol1[h-1]];
+        nazwyZKolumny2[h-1]=tabpl[tablicaWylosowanychNumerowPytanMIXED[h-1]];
+        nazwyZKolumny1[h-1]=tabfr[tablicaWylosowanychNumerowPytan[h-1]];
 
 
-        document.getElementById("k1"+h).innerText = kol11[h-1];
-        document.getElementById("k2"+h).innerText = kol22[h-1];
+        document.getElementById("k1"+h).innerText = nazwyZKolumny1[h-1];
+        document.getElementById("k2"+h).innerText = nazwyZKolumny2[h-1];
 
     }
     document.getElementById("INFO").innerHTML = "INFO";
 }
-
-function game2press(a, b)
+//document.getElementById("INFO").innerText += linia;
+function game2press(numerKolumny, numerWiersza)
 {
 if(kociec===true){
-    if (document.getElementById("k" + a + b).style.backgroundColor !== "green") {
+    if (document.getElementById("k" + numerKolumny + numerWiersza).style.backgroundColor !== "green") {
 
-        if (a === 1 && aaa === true) {
-            aa = b;
-            aaa = false;
-            document.getElementById("k" + a + b).style.backgroundColor = "red";
-            aaaa = "k" + a + b;
-        } else if (a === 2 && bbb === true) {
-            bb = b;
-            bbb = false;
-            document.getElementById("k" + a + b).style.backgroundColor = "red";
-            bbbb = "k" + a + b;
+        if (numerKolumny === 1 && brakOdpowiedziKolumna1 === true) {
+            wybranyNumerWiersza1 = numerWiersza;
+            brakOdpowiedziKolumna1 = false;
+            document.getElementById("k" + numerKolumny + numerWiersza).style.backgroundColor = "red";
+            pozycjaWKolumnie1 = "k" + numerKolumny + numerWiersza;
+        } else if (numerKolumny === 2 && brakOdpowiedziKolumna2 === true) {
+            wybranyNumerWiersza2 = numerWiersza;
+            brakOdpowiedziKolumna2 = false;
+            document.getElementById("k" + numerKolumny + numerWiersza).style.backgroundColor = "red";
+            pozycjaWKolumnie2 = "k" + numerKolumny + numerWiersza;
         }
 
-        if (kol1[aa - 1] === kol2[bb - 1]) {
-            if(omg===15)
+        if (tablicaWylosowanychNumerowPytan[wybranyNumerWiersza1 - 1] === tablicaWylosowanychNumerowPytanMIXED[wybranyNumerWiersza2 - 1]) {
+            if(iloscPoprawnychZaznaczen===15)
             {
                 wygra=false;
                 document.getElementById("konfetti").style.display="block";
                 setTimeout("konfi()",10000);
             }
             kociec=false;
-            aaaaa=aaaa;
-            bbbbb=bbbb;
-            document.getElementById(aaaa).style.backgroundColor = "limegreen";
-            document.getElementById(bbbb).style.backgroundColor = "limegreen";
-            omg++;
-            info=kol1[aa-1];
+            wybranaPozycjaWKolumnie1=pozycjaWKolumnie1;
+            wybranaPozycjaWKolumnie2=pozycjaWKolumnie2;
+            document.getElementById(pozycjaWKolumnie1).style.backgroundColor = "limegreen";
+            document.getElementById(pozycjaWKolumnie2).style.backgroundColor = "limegreen";
+            iloscPoprawnychZaznaczen++;
+            numerPoprawnejOdpowiedzi=tablicaWylosowanychNumerowPytan[wybranyNumerWiersza1-1];
             dajInfo();
             //document.getElementById("INFO").innerText += aa;
-            aaa = true;
-            bbb = true;
+            brakOdpowiedziKolumna1 = true;
+            brakOdpowiedziKolumna2 = true;
             g2 = false;
           //  aa = null;
-            bb = null;
+            wybranyNumerWiersza2 = null;
 
-            setTimeout("dadaw2()",500);
+            setTimeout("AnimacjaDobrejOdpowiedzi()",500);
 
 
         } else {
 
-            if (aaa === bbb) {
-               document.getElementById(aaaa).style.backgroundColor = "red";
-                document.getElementById(bbbb).style.backgroundColor = "red";
-                aaaaa=aaaa;
-                bbbbb=bbbb;
-                setTimeout("dadaw()",500);
+            if (brakOdpowiedziKolumna1 === brakOdpowiedziKolumna2) {
+               document.getElementById(pozycjaWKolumnie1).style.backgroundColor = "red";
+                document.getElementById(pozycjaWKolumnie2).style.backgroundColor = "red";
+                wybranaPozycjaWKolumnie1=pozycjaWKolumnie1;
+                wybranaPozycjaWKolumnie2=pozycjaWKolumnie2;
+                setTimeout("AnimacjaZlejOdpowiedzi()",500);
 
 
             }
@@ -438,35 +439,35 @@ if(kociec===true){
     }
 }}
 
-function dadaw()
+function AnimacjaZlejOdpowiedzi()
 {
-    document.getElementById(aaaaa).style.backgroundColor = "whitesmoke";
-    document.getElementById(bbbbb).style.backgroundColor = "orange";
-    aaaaa=null;
-    bbbbb=null;
-    aaa = true;
-    bbb = true;
+    document.getElementById(wybranaPozycjaWKolumnie1).style.backgroundColor = "whitesmoke";
+    document.getElementById(wybranaPozycjaWKolumnie2).style.backgroundColor = "orange";
+    wybranaPozycjaWKolumnie1=null;
+    wybranaPozycjaWKolumnie2=null;
+    brakOdpowiedziKolumna1 = true;
+    brakOdpowiedziKolumna2 = true;
     g2 = false;
-    aa = null;
-    bb = null;
+    wybranyNumerWiersza1 = null;
+    wybranyNumerWiersza2 = null;
     kociec=true;
 }
 
-function dadaw2()
+function AnimacjaDobrejOdpowiedzi()
 {
-    document.getElementById(aaaaa).style.backgroundColor = "green";
-    document.getElementById(bbbbb).style.backgroundColor = "green";
+    document.getElementById(wybranaPozycjaWKolumnie1).style.backgroundColor = "green";
+    document.getElementById(wybranaPozycjaWKolumnie2).style.backgroundColor = "green";
   //  if(tryb1===2)
    // {
 
    // }
-    aaaaa=null;
-    bbbbb=null;
-    aaa = true;
-    bbb = true;
+    wybranaPozycjaWKolumnie1=null;
+    wybranaPozycjaWKolumnie2=null;
+    brakOdpowiedziKolumna1 = true;
+    brakOdpowiedziKolumna2 = true;
     g2 = false;
-    aa = null;
-    bb = null;
+    wybranyNumerWiersza1 = null;
+    wybranyNumerWiersza2 = null;
     kociec=true;
 }
 
@@ -573,7 +574,7 @@ function g3stworzZadanie()
 function konfi() {
 
     document.getElementById("konfetti").style.display="none";
-    omg=0;
+    iloscPoprawnychZaznaczen=0;
 
 }
 var szpinak;
