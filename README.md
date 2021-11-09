@@ -1,6 +1,6 @@
 # kursFranc
 
-![Screenshot](FrQuizGame1.png)
-![Screenshot](FrQuizGame2.png)
-![Screenshot](FrQuizGame3.png)
-![Screenshot](FrQuizGame4.png)
+![Screenshot](FrQuizGame1.PNG)
+![Screenshot](FrQuizGame2.PNG)
+![Screenshot](FrQuizGame3.PNG)
+![Screenshot](FrQuizGame4.PNG)
